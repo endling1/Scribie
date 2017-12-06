@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "request": "^2.83.0"
+    "jsdom": "^11.5.1",
+    "request": "^2.83.0",
+    "zombie": "^5.0.7"
   }
 }

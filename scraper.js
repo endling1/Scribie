@@ -2,6 +2,7 @@ const request = require('request');
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
 const browser = require('zombie');
+const {Builder, By, Key, until} = require('selenium-webdriver');
 
 class Scraper {
 	constructor() {
@@ -80,7 +81,7 @@ class Scraper {
 			
 			const window = dom.window;
 			window.onModulesLoaded = () => {
-			  callback(null, dom.serialize().match(this.avRegex));
+			  callback(null, dom.serialize().match(this.avRegex) || []);
 			};
 		});
 	}
@@ -96,8 +97,28 @@ class Scraper {
     			return callback(err, null);
     		} 
     		browser.wait({duration: 4000}).then(() => {
-    			callback(null, browser.html.match(this.avRegex));
+    			callback(null, browser.html.match(this.avRegex) || []);
     		});
+		});
+	}
+
+	/* 
+		Needs a browser to work
+		Needs gecko driver installed
+		Selenium automation 
+	*/
+	scrapeAVLinks5(url, callback){
+		let driver = new Builder()
+		    .forBrowser('firefox')
+		    .build();
+
+		driver.get(url);
+		driver.getPageSource(url)
+		.then((res) => {
+			callback(null, res.match(this.avRegex) || [])
+		})
+		.catch((reason) => {
+			callback(reason, null);
 		});
 	}
 };

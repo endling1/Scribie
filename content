@@ -1,0 +1,1969 @@
+<!DOCTYPE html >
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+
+
+<head>
+	<meta charset="utf-8">
+	<title>John Cleese on creativity, group dynamics and celebrity - CornellCast</title>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1240">
+	<script>
+		// toggle viewport settings to allow responsive mobile sizes, but a scaled 1240 window for tablet landscape
+		var ipad = false;
+		var ipad_iOS6 = false;
+		if (navigator.userAgent.match(/iPad/i)) {
+			 ipad = true;
+			 if (window.FileReader) {
+			 	ipad_iOS6 = true;
+			}
+		}
+		
+		var viewportmeta = document.querySelector('meta[name="viewport"]');
+		var viewporttimer;
+		
+		var prev_width = 0;
+		var prev_width_counter = 0;
+		var width_standard = 'innerWidth';
+		
+		viewportmeta.content = 'width=device-width, initial-scale=1, maximum-scale=1'; // reset to detect device width
+		if (window.innerWidth > window.outerWidth) { // test for inconsistencies (i.e., Android)
+			width_standard = 'outerWidth';
+		}
+
+		if (viewportmeta && window[width_standard] < 1024) {
+			viewportmeta.content = 'width=device-width, initial-scale=1, maximum-scale=5';
+		}
+		function viewportCheck(platform) {
+			platform = platform || null;
+			if (ipad_iOS6 || platform != 'apple') {
+				viewportmeta.content = 'width=device-width, initial-scale=1, maximum-scale=1'; // reset to detect device width
+				// only clear the timer if Android triggered events properly
+				if (window[width_standard] != prev_width || prev_width_counter > 2) {
+					clearInterval(viewporttimer);
+					prev_width = window[width_standard];
+					prev_width_counter = 0;
+				}
+				else {
+					prev_width_counter++;
+				}
+				// landscape mode 
+				if (viewportmeta && window[width_standard] >= 1024) {
+					viewportmeta.content = 'width=1240, initial-scale=0.825, maximum-scale=5';
+				}
+				else {
+					viewportmeta.content = 'width=device-width, initial-scale=1, maximum-scale=5';
+				}
+			}
+			else if (ipad) {
+				viewporttimer = setInterval(viewportCheck,200);
+				//viewportmeta.content = 'width=1240, maximum-scale=5';
+			}
+			
+		}
+		// trigger on orientationchange for iOS, but add a 400ms delay for other devices
+		if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
+			viewportCheck('apple');
+			window.addEventListener("orientationchange", function() {
+				viewportCheck('apple')
+			});
+		}
+		else {
+			viewportCheck('non-apple');
+			window.addEventListener("orientationchange", function() {
+				viewporttimer = setInterval(viewportCheck,400);
+			});
+		}
+		
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" media="all" href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" />
+	<link rel="stylesheet" type="text/css" media="all" href="//www.cornell.edu/video/assets/stylesheets/style.css" />
+    
+	<link rel="stylesheet" type="text/css" media="all" href="//www.cornell.edu/video/assets/stylesheets/media-queries.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="//www.cornell.edu/video/assets/stylesheets/media-queries-ui.css" />
+
+	<link rel="shortcut icon" href="//www.cornell.edu/video/assets/images/icons/favicon.ico" />
+	<link rel="apple-touch-icon" href="//www.cornell.edu/video/assets/images/icons/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="//www.cornell.edu/video/assets/images/icons/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="//www.cornell.edu/video/assets/images/icons/apple-touch-icon-114x114.png" />
+	
+	
+	<link rel="canonical" href="http://www.cornell.edu/video/john-cleese-on-creativity-group-dynamics-and-celebrity"/>
+	
+	<!-- Emergency banner -->
+	<script src="https://embanner.univcomm.cornell.edu/OWC-emergency-banner.js" type="text/javascript"> </script>
+
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js" type="text/javascript"></script>
+	<script type="text/javascript">window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+<![endif]-->
+	
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/doubletaptogo.min.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/ios-orientationchange-fix.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/overthrow.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+var CornellCast = {
+	browse: "recent",
+	homeURL: "//www.cornell.edu/video",
+	defaultKID: "0_prgez0mm",
+	startSecs: "0",
+	endSecs: "0",
+	autoplay: "1",
+	ask: "0",
+	rsvp: "0",
+	showSub: "0",
+	showSched: "0",
+	cancelrsvp: "0",
+	cancelfollow: "0",
+	playheadValue: 0,
+	playheadTracking: new Array(), // Using just [] appears to cause trouble for IE 8.
+	channelName: "",
+	kID: "",
+	cleanURL: "",
+	videoID: 0,
+	shareFacebook: "https://www.facebook.com/sharer.php?u=http://www.cornell.edu/video/[URL]",
+	shareTwitter: "https://twitter.com/share?url=http://www.cornell.edu/video/[URL]&text=[Title]",
+	shareGooglePlus: "https://plus.google.com/share?url=http://www.cornell.edu/video/[URL]",
+	view: "list",
+	overrideAutoplay: false,
+	serverMode: "Prod",
+	gaTracking: true,
+	hasFlash: false,
+	remind: "0",
+	captions: "0"
+};
+
+CornellCast.gaTracking = (CornellCast.serverMode == "Dev") ? false : true;
+
+</script>
+	
+
+
+
+
+<!-- BEGIN FACEBOOK OPEN GRAPH TAGS -->
+
+<meta property="og:title" content="John Cleese on creativity, group dynamics and celebrity - CornellCast" />
+<meta property="og:url" content="http://www.cornell.edu/video/john-cleese-on-creativity-group-dynamics-and-celebrity">
+<meta property="og:site_name" content="CornellCast" />
+<meta property="og:type" content="video" />
+	<meta property="og:description" content="On-stage interview with visiting professor of 'Monty Python' and 'Fawlty Towers' fame." />
+	<meta property="og:image" content="http://www.cornell.edu/video/img/thumbs/475-2.jpg" />
+	<meta property="og:image:secure_url" content="https://www.cornell.edu/video/img/thumbs/475-2.jpg" />
+		<!-- direct asset ref: -->
+		<meta property="og:video" content="https://cdnapisec.kaltura.com/p/537811/sp/53781100/playManifest/entryId/1_zaatpsw0/flavorId/1_d2uwy7vv/format/url/protocol/http/a.mp4" />
+		<meta property="og:video:type" content="video/mp4" />
+
+		<!-- Facebook iframe embed -->
+		<meta property="og:video:url" content="https://cdnapisec.kaltura.com/p/537811/sp/53781100/embedIframeJs/uiconf_id/21585351/partner_id/537811?iframeembed=true&playerId=kaltura_player&entry_id=1_zaatpsw0">
+		<meta property="og:video:secure_url" content="https://cdnapisec.kaltura.com/p/537811/sp/53781100/embedIframeJs/uiconf_id/21585351/partner_id/537811?iframeembed=true&playerId=kaltura_player&entry_id=1_zaatpsw0">
+		<meta property="og:video:type" content="text/html">
+		<meta property="og:video:width" content="640">
+		<meta property="og:video:height" content="360">
+
+		<!-- legacy swf embed: -->
+		<meta property="og:video:url" content="https://cdnapisec.kaltura.com/index.php/kwidget/cache_st/1423160141/wid/_537811/uiconf_id/21585351/entry_id/1_zaatpsw0" />
+		<meta property="og:video:secure_url" content="https://cdnapisec.kaltura.com/index.php/kwidget/cache_st/1423160141/wid/_537811/uiconf_id/21585351/entry_id/1_zaatpsw0" />
+		<meta property="og:video:type" content="application/x-shockwave-flash">
+		<meta property="og:video:width" content="640" />
+		<meta property="og:video:height" content="360" />
+	
+
+<!-- END FACEBOOK OPEN GRAPH TAGS -->
+
+
+
+<meta name="title" content="John Cleese on creativity, group dynamics and celebrity - CornellCast" />
+	<meta name="description" content="On-stage interview with visiting professor of 'Monty Python' and 'Fawlty Towers' fame." />
+	<meta name="keywords" content="theater,creativity,business" />
+	<link rel="image_src" href="//www.cornell.edu/video/img/thumbs/475-2.jpg" />
+
+<meta name="medium" content="video" />
+
+<script>
+	$(function() {
+		var pull 		= $('.pull-navigation');
+			menu 		= $('nav.primary-menu');
+			menuHeight	= menu.height();
+
+		$(pull).on('click', function(e) {
+			e.preventDefault();
+			menu.slideToggle();
+		});
+
+		$(window).resize(function(){
+			var w = $(window).width();
+			if (w > 320 && menu.is(':hidden')) {
+				menu.removeAttr('style');
+			}	
+		});
+	});
+		
+</script>
+
+<style>
+.browse-section {
+	display: none;
+}
+.tabBrowse {
+	cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+	<div class="wrapper">
+
+
+<div id="skipnav">
+	<a href="#contentStart">Skip to main content</a>
+</div>
+
+<hr class="banner-separator" />
+
+<div id="cu-identity-wrap">
+
+	<div id="cu-identity-content">
+		<a id="insignia-link" href="http://www.cornell.edu/"><img src="//www.cornell.edu/img/transparent1x1.png" alt="Cornell University homepage" /></a>
+		
+		<div id="search-form" class="search-45">
+			<form action="//www.cornell.edu/search">
+				<label for="search-form-query"><a href="//www.cornell.edu/search/">Search Cornell</a> </label>
+				<input type="text" id="search-form-query" name="q" value="Search Cornell" size="20" onblur="this.value = this.value || this.defaultValue;" onfocus="this.value == this.defaultValue && (this.value =''); this.select()">
+				<input type="submit" id="search-form-submit" name="submit" value="go" style="width: 4em; ">
+			</form>
+		</div>
+
+	</div>
+</div>
+
+
+
+<header class="cc">
+	<div class="cc-header">
+	
+		
+		
+			<a class="cc-title" href="//www.cornell.edu/video"><h1>CornellCast</h1></a>
+		
+
+		<button class="pull-navigation" id="explore">Explore</button>
+
+		<div class="cornellcast-search">
+			<form action="//www.cornell.edu/video/search.cfm" method="get">
+				<input type="search" name="q" placeholder="search 3,533 videos" title="search 3,533 videos" aria-label="search term" />
+				<button type="submit" value="Submit" title="search" /><i class='fa fa-search'></i></button>
+			</form>
+		</div>
+
+		<nav class="primary-menu">
+			<ul>
+			
+			
+				<li><a href="//www.cornell.edu/video/">Home</a></li>
+			
+				<li class="current" style="color: white">CyberTower</li>
+			
+				<li><a href="//www.cornell.edu/video/browse/recent">Browse</a>
+			
+				
+				<ul class="sub-menu browse" style="visibility: hidden;">
+					<li class="browseMenuItem"><a href="//www.cornell.edu/video/browse/recent">Recent</a></li>
+					<li class="browseMenuItem"><a href="//www.cornell.edu/video/browse/popular">Trending</a></li>
+					<li class="browseMenuItem"><a href="//www.cornell.edu/video/browse/playlist">Playlists</a></li>
+					<li class="browseMenuItem"><a href="//www.cornell.edu/video/browse/series">Series</a></li>
+					<li class="browseMenuItem"><a href="//www.cornell.edu/video/browse/speaker">Speakers</a></li>
+					<li class="browseMenuItem"><a href="//www.cornell.edu/video/browse/topic">Topics</a></li>
+					<li class="browseMenuItem"><a href="//www.cornell.edu/video/browse/contrib">Contributors</a></li>
+				</ul>
+			</li>
+
+			
+				<li><a href="//www.cornell.edu/video/submission-info.cfm">Submit</a></li>
+			
+				<li><a href="//www.cornell.edu/video/myplaylist/" id="myCount">MyPlaylist</a>
+			
+				
+				<div class="myplaylist-drop" style="visibility: hidden">
+					<div id="myplaylist">
+						<ul class="sub-menu playlist" id="myplaylistItems">
+						
+						</ul>
+					</div>
+
+					<div class="play-all-playlist"><a href="//www.cornell.edu/video/myplaylist.cfm?view=player"><i class="fa fa-play-circle"></i> Play all in MyPlaylist</a></div>
+					</div>
+				</li>
+
+			<li><a href="http://blogs.cornell.edu/cornellcast/">Help</a></li>
+
+			</ul>
+		</nav>
+
+	</div>
+</header>
+
+
+
+<span id="contentStart"></span>
+
+
+<div class="upcoming-live">
+	<aside>
+		<ul class="slides">
+	  	
+		
+			<li>	
+				<i class="fa fa-calendar"></i> <span class="event-label">Upcoming Live Event:</span>
+				<span class="event-date">December  6 - 6:00 pm</span>
+				<span class="event-title"><a href="//www.cornell.edu/video/pet-nutrition-webinar-december-6-2017">Baker Pet Talks webinar: Pet Nutrition</a></span>
+				<div class="event-actions">
+					<button class="btn notify" data-reveal-id="rsvp" data-animation="fade" data-rsvp-title="Baker Pet Talks webinar: Pet Nutrition" data-rsvp-kid="1_m3vi1zsx" data-rsvp-vid="8257" data-rsvp-thumb="//media.univcomm.cornell.edu/photos/377x212/F7B7BE3F-A887-A298-AD1F361E2F9DEBA2.jpg" data-rsvp-time="December  6 - 6:00 pm (Eastern Time)" data-context="top-bar"><i class="fa fa-envelope"></i> rsvp</button>
+					
+					
+						<button class="btn ask-question" data-reveal-id="ask-a-question" data-animation="fade" data-ask-title="Baker Pet Talks webinar: Pet Nutrition" data-ask-kid="1_m3vi1zsx" data-ask-vid="8257" data-ask-thumb="//media.univcomm.cornell.edu/photos/377x212/F7B7BE3F-A887-A298-AD1F361E2F9DEBA2.jpg"><i class="fa fa-comment"></i> ask a question</button>
+					
+				</div>
+			</li>
+		
+			<li>	
+				<i class="fa fa-calendar"></i> <span class="event-label">Upcoming Live Event:</span>
+				<span class="event-date">December  7 - 7:00 pm</span>
+				<span class="event-title"><a href="//www.cornell.edu/video/eric-severson-future-of-retail-flexible-shift-work-21st-century">The Future of Retail: Flexible Shift Work in the 21st Century</a></span>
+				<div class="event-actions">
+					<button class="btn notify" data-reveal-id="rsvp" data-animation="fade" data-rsvp-title="The Future of Retail: Flexible Shift Work in the 21st Century" data-rsvp-kid="1_6zx0gsqa" data-rsvp-vid="8259" data-rsvp-thumb="//media.univcomm.cornell.edu/photos/377x212/210D829C-AFA7-4A35-B584E11AE87B6E83.jpg" data-rsvp-time="December  7 - 7:00 pm (Eastern Time)" data-context="top-bar"><i class="fa fa-envelope"></i> rsvp</button>
+					
+					
+						<button class="btn ask-question" data-reveal-id="ask-a-question" data-animation="fade" data-ask-title="The Future of Retail: Flexible Shift Work in the 21st Century" data-ask-kid="1_6zx0gsqa" data-ask-vid="8259" data-ask-thumb="//media.univcomm.cornell.edu/photos/377x212/210D829C-AFA7-4A35-B584E11AE87B6E83.jpg"><i class="fa fa-comment"></i> ask a question</button>
+					
+				</div>
+			</li>
+		
+
+
+		</ul>
+	</aside>
+</div>
+
+
+<div id="ask-a-question" class="reveal-modal modal">
+	<h3>Ask a Question</h3>
+	
+	<div class="content">
+		<h4 id="askModalEventTitle">tbd</h4>
+		
+		
+		<form action="#" method="post" novalidate="" name="askQuestion" id="askQuestion">
+		
+			<input type="hidden" name="KalturaIDAsk" value="tbd"/>
+			<input type="hidden" name="VideoIDAsk" value="-1"/>
+			
+			<div class="field">
+				<label for="QuestionUserName">Name</label>
+				<input type="text" name="UserName" id="QuestionUserName" required="required" placeholder="name (optional)" aria-label="name" />
+			</div>
+			
+			<div class="field">
+				<label for="QuestionUserEmail">Email Address</label>
+				<input type="email" name="UserEmail" id="QuestionUserEmail" required="required" placeholder="email (optional)" aria-label="email address" />
+			</div>
+			
+			<div class="textarea">
+				<label for="QuestionText">Question</label>
+				<textarea rows="5" cols="200" name="Question" id="QuestionText" required="required" placeholder="question/comment" aria-label="enter a question here"></textarea>
+			</div>
+			
+			
+			<style type="text/css">
+				input.age {
+					display: none;
+				}
+			</style>
+			<input value="" class="age" name="age" aria-label="please ignore this form field" />
+
+			<div class="field f_100 clearfix submit form-submit">
+				<button type="submit" value="Send" id="submitAskQuestion">Send</button> or <button class="btn close-reveal-modal modalCancel" id="cancelAskQuestion">cancel</button>
+			</div>
+			
+		</form>
+	</div>
+	
+	<button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+<div id="questionSuccess" class="reveal-modal modal success">
+	<h3>Ask a Question Successful</h3>
+
+	<div class="content">
+
+			<h5 class="aligncenter">Thanks<span id="AskSuccessUserNameStr">, </span>! Your question has been submitted.</h5>
+			<p class="user-question" id="AskSuccessQuestion"></p>
+
+			<!--
+			<p class="notification">Tune in <span id="AskSuccessTuneIn"></span> to watch the broadcast.</p>
+			<form action="##" method="post" novalidate="" name="rsvpForm" id="rsvpForm">
+							
+				<div class="select-time">
+					<p>Set reminder for</p>
+					<select name="UserReminderAmount" data-placeholder="choose time..." class="chzn-select" style="width:160px;" tabindex="2">
+						<option value=""></option> 
+						<option value="5">5 minutes</option> 
+						<option value="15">15 minutes</option> 
+						<option value="30" selected>30 minutes</option> 
+						<option value="60">1 hour</option> 
+						<option value="1440">1 day</option> 
+					</select>
+
+					<p>before the event starts.</p>
+				</div>
+
+				<div class="field f_100 clearfix submit form-submit">
+					<button type="submit" value="Submit" id="submitRSVPAskSuccess">Remind Me</button>
+				</div>
+
+				<input type="hidden" value="" name="UserName" id="AskSuccessUserName" />
+				<input type="hidden" value="" name="UserEmail" id="AskSuccessUserEmail" />
+				<input type="hidden" value="" name="KalturaIDRSVP" id="AskSuccessUserKalturaID" />
+				<input type="hidden" value="" name="VideoIDRSVP" id="AskSuccessUserVideoID" />
+
+			</form>
+			-->
+	</div>
+
+	<button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+
+
+<script type="text/javascript">
+CornellCast.cleanURL = "john-cleese-on-creativity-group-dynamics-and-celebrity";
+CornellCast.videoID = 475;
+</script>
+
+<div itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
+	<section class="single-video-archived" aria-label="main video area">
+	  
+		<header>
+			<h2><span itemprop="name">John Cleese on creativity, group dynamics and celebrity</span></h2>
+
+			
+
+			
+
+			
+			
+
+			<meta itemprop="duration" content="PT1H11M58S" />
+
+			
+			<meta itemprop="thumbnailUrl" content="http://www.cornell.edu/video/img/thumbs/475-2.jpg" />
+
+			<meta itemprop="embedURL" content="http://www.cornell.edu/video/john-cleese-on-creativity-group-dynamics-and-celebrity/embed" />
+			<meta itemprop="uploadDate" content="2009-06-23T00:00:00+05:00" />
+
+			<meta itemprop="description" content="On-stage interview with visiting professor of 'Monty Python' and 'Fawlty Towers' fame." />
+
+			<span class="date">Posted on June      23, 2009 
+			</span>
+		</header>
+		
+		<article class="main-content">
+			
+
+<div class="player">
+	
+
+<script type="text/javascript">
+	CornellCast.defaultKID = "1_zaatpsw0";
+	CornellCast.kID = "1_zaatpsw0";
+</script>
+
+
+
+<div id="flashcontent" data-playersize="Large">
+
+
+
+<!-- embedType: Auto -->
+
+	<script src="//cdnapisec.kaltura.com/p/537811/sp/53781100/embedIframeJs/uiconf_id/10478211/partner_id/537811"></script>
+
+	<div id="kplayer_CornellCast_player" data-embedtype="dynamic" style="width: 100%; height: 100%;">
+		<a href="http://corp.kaltura.com/products/video-platform-features">Video Platform</a>
+		<a href="http://corp.kaltura.com/Products/Features/Video-Management">Video Management</a> 
+		<a href="http://corp.kaltura.com/Video-Solutions">Video Solutions</a>
+		<a href="http://corp.kaltura.com/Products/Features/Video-Player">Video Player</a>
+	</div>
+	
+	<script>
+	function delayedPlayerLoad() {
+		kWidget.embed({
+		  "targetId": "kplayer_CornellCast_player",
+		  "wid": "_537811",
+		  "uiconf_id": 10478211,
+		  "flashvars": {
+		  	
+		    "streamerType": "rtmp",
+		    "mediaProtocol": "rtmp",
+			"asyncInit": "true",
+			"externalInterfaceDisabled": "false",
+			"allowScriptAccess": "always"
+		  },
+		  "cache_st": 1373384948,
+		  "entry_id": "1_zaatpsw0"
+		});
+	}
+
+	// Add a listener to ensure the player is loaded, else autoplay setting won't be honored and start and end times won't be applied.
+	var checkForPlayer = window.setInterval(function() {
+		if (kWidget) {
+			window.clearInterval(checkForPlayer);
+			delayedPlayerLoad();
+		}
+	}, 200);
+
+	// The next line is needed to ensure iOS shows the player - it seems to be hidden after it's loaded and/or its containing iFrame is set to zero width when it's generated.
+	//setTimeout('$("#CornellCast_player_ifp").width("100%").height("100%").show()', 500);
+	//setTimeout('$("#CornellCast_player_ifp").width("100%").height("100%").show()', 2500);
+	</script>
+
+
+
+
+</div>
+
+ 
+</div>
+
+<div class="video-content">
+
+	
+
+<div class="share-this">
+	<div class="social">
+		<div class="social-btns">
+			<ul>
+				<li title="share this page via Facebook">
+					<a data-gaitem="share - facebook" href="https://www.facebook.com/sharer.php?u=http://www.cornell.edu/video/john-cleese-on-creativity-group-dynamics-and-celebrity" class="facebook" target="_blank">
+						<span class="accessible-label">facebook</span>
+						<i class="fa fa-facebook-square"></i>
+					</a>
+				</li>
+			
+				<li title="share this page via Twitter">
+					<a data-gaitem="share - twitter" href="https://twitter.com/share?url=http://www.cornell.edu/video/john-cleese-on-creativity-group-dynamics-and-celebrity&text=John Cleese on creativity, group dynamics and celebrity" class="twitter" target="_blank">
+						<span class="accessible-label">twitter</span>
+						<i class="fa fa-twitter-square"></i>
+					</a>
+				</li>
+				
+				<li title="share this page via Google Plus">
+					<a data-gaitem="share - google plus" href="https://plus.google.com/share?url=http://www.cornell.edu/video/john-cleese-on-creativity-group-dynamics-and-celebrity" class="google-plus" target="_blank">
+						<span class="accessible-label">google plus</span>
+						<i class="fa fa-google-plus-square"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="share">
+		<button class="btn" id="shareWidgetButton"><i class="fa fa-share-alt"></i><span class="hidden-xs">share</span></button>
+
+		<button class="btn" style="display: none" id="transcriptWidgetButton"><i class="fa fa-file-text-o"></i><span class="hidden-xs">interactive transcript</span></button>
+
+		<button class="btn" style="display: none" id="transcriptRequestButton"><i class="fa fa-file-text-o"></i><span class="hidden-xs">request transcript/captions</span></button>
+
+		<button class="btn" style="display: none" id="livecaptionsButton"><i class="fa fa-file-text-o"></i><span class="hidden-xs">live captions</span></button>
+		
+		<div class="dropdown share-dropdown" id="downloadsButton">
+			
+	<button class="share-drop dropdown-toggle" data-toggle="dropdown"><i class="fa fa-download"></i><span class="hidden-xs">download</span></button>
+
+	<div class="dropdown-menu" role="menu" aria-label="download options">
+
+		
+			<a class="btn" href="http://cdnapi.kaltura.com/p/537811/sp/53781100/playManifest/entryId/1_zaatpsw0/flavorId/1_vs6gl6x6/protocol/http/format/url/a.mp4" download="john-cleese-on-creativity-group-dynamics-and-celebrity-lq.mp4">SD video</a>
+		
+			<a class="btn" href="http://cdnapi.kaltura.com/p/537811/sp/53781100/playManifest/entryId/1_zaatpsw0/flavorId/1_9ymnkm7b/protocol/http/format/url/a.mp3" download="john-cleese-on-creativity-group-dynamics-and-celebrity.mp3">audio</a>      
+		
+
+	</div>
+
+		</div>
+		
+		<span class="divider">|</span>
+
+		
+			<button class="btn add playlist" id="myButton_1_zaatpsw0"><span class="hidden-xs">MyPlaylist </span><i class="fa fa-star-o fa-visible"></i> </button>
+		
+
+
+	</div>
+	
+	
+	
+<div id="shareBarClipTimes" class="slideBar">
+
+	
+		<div id="startClip">
+			<input type="checkbox" value="1" id="shareBarClipStartTimeCheckbox" title="save start time" aria-label="set start time to now" />
+			<label>start:</label>
+			<input type="text" id="shareBarClipStartTime" name="shareBarClipStartTime" size="8" value="" aria-label="enter start time" />
+			<button id="shareBarClipStartButton" title="set start time">now</button>
+		</div>
+		<div id="endClip">
+			<input type="checkbox" value="1" id="shareBarClipEndTimeCheckbox" title="save end time" aria-label="set end time to now" />
+			<label>end:</label>
+			<input type="text" id="shareBarClipEndTime" name="shareBarClipEndTime" size="8" value="" aria-label="enter end time" />
+			<button id="shareBarClipEndButton" title="set end time">now</button>
+			<button id="shareBarClipResetButton" class="resetBtn">reset</button>
+		</div>
+	
+
+	<div id="copyButtons" class="copyBtns">
+		<button class="btn link" id="shareBarLink"><i class="fa fa-link"></i> copy link</button>
+		<button class="btn embed" id="shareBarEmbed">copy embed</button>
+	</div>
+	<button id="shareBarClipCloseButton" class="closeBtn">X</button>
+	
+	<input type="hidden" id="shareBarClipStartTimeSecs" name="shareBarClipStartTimeSecs" value="" /> 
+	<input type="hidden" id="shareBarClipEndTimeSecs" name="shareBarClipEndTimeSecs" value="" />
+	
+	
+	
+</div>
+
+
+
+</div>
+
+
+
+	<div id="transcriptContainer" itemprop="transcript" style="display: none;">
+	
+
+	
+	<script type="text/javascript">
+		// p3_external_stylesheet = "//www.cornell.edu/video3/assets/stylesheets/transcripts.css"; // removed because of IE
+		$("#transcriptWidgetButton").show();
+	</script>
+
+	<script type="text/javascript" src="//static.3playmedia.com/p/projects/12206/files/1367663/plugins/10696.js"></script>
+
+
+		<noscript>
+			SPEAKER 1: This is a production of Cornell University. 
+
+[APPLAUSE] 
+
+KENT FUCHS: Welcome. I'm Cornell provost Kent Fuchs. And it's wonderful to have so many of you here as an enthusiastic crowd. Today, we are treated with a special session this Sunday afternoon with John Cleese, who was at Cornell in his role as Provost's Visiting Professor, and also Elizabeth Beta Mannix, professor in the Johnson Graduate School of Management and also Vice-Provost for Equity and Inclusion. 
+
+This event marks a decade of formal association between John Cleese and Cornell. He's visited campus each time and each year of the past 10 years and brought us new insights and new ways of looking at the world, as well as innovative ways of teaching and communicating. He is part comedian. He's part psychologist, part master teacher, and fully a public intellectual. 
+
+John Cleese first appeared on British television-- 
+
+[LAUGHTER] 
+
+Please let me get through this. He first appeared on British television in The Frost Report in 1966. He co-created Monty Python's Flying Circus, and later, the Fawlty Towers series. 
+
+[CHEERING, APPLAUSE] 
+
+Working with the Python team, he produced four films, including the classics, Monty Python and the Holy Grail and The Life of Brian. 
+
+[CHEERING, APPLAUSE] 
+
+He's a remarkably versatile actor, writer, director. 
+
+[LAUGHTER] 
+
+He's had roles in Shakespeare's Taming of the Shrew for BBC. He's been in two Harry Potter films. And he's also been the voice of Harold in Shrek 2 and 3. 
+
+[LAUGHTER] 
+
+In 1983, he co-wrote Families and How to Survive Them, which later became a BBC radio series. And then in 1993, with Dr. Rob Buckman, he set up a company that is entitled Videos for Patients. And it was designed to improve the communication between doctors and their patients. 
+
+Mr. Cleese began his formal association with Cornell in 1999 as an AD White Professor-at-Large. At the end of that six-year term, the trustees took the unusual act of extending it for another two years. And after that, we couldn't allow the association to end so we reappointed him as a Provost's Visiting Professor. And he's just agreed, verbally at least, to continue that association as a Provost's Visiting Professor. 
+
+[CHEERING, APPLAUSE] 
+
+During his visit as a Provost's Visiting Professor last year, he spent time here in Ithaca, where he discussed self-esteem with psychology students, screenwriting with theater faculty and students. He met with and had readings and discussions in Beta and Cook Houses in West Campus. He also visited the Weill Cornell Medical College, where he gave a talk as part of their Humanities and Medicine series. 
+
+On this visit, over the last couple of days, he's already met with Professors Jim Maas and Daryl Bem about their research. He's visited with students from the Keaton House and the Beta House, as well as students in two filmmaking courses. And he's got another couple of days here on campus. 
+
+For today's public event, John Cleese is teaming up with a member of our own faculty, Elizabeth Beta Mannix, who is the Ann Whitney Olin Professor of Management and Vice-Provost for Equity and Inclusion. Beta holds a PhD from the University of Chicago. Her research and teaching and her interests in that area includes effective performance in managerial teams, diversity in organizations and teams, power and alliance, and organizational change or renewal. For the past three years, she directed Cornell's Institute for Social Sciences, which promotes interdisciplinary research and is designed to increase Cornell's prominence in the social sciences. 
+
+In today's discussion-- it's going to be wide-ranging. My expectation, you'll hear things that are funny about how to generate ideas. You'll hear about how to keep growing, learning, and trying new things. I suspect there'll be talking about politics, maybe even religion and education and all other surprises along the way. At the end, there'll be time for your questions and comments as well. So please now welcome, as you already have, Mr. Cleese and also Beta Mannix. Thank you. 
+
+[CHEERING, APPLAUSE] 
+
+BETA MANNIX: Well, thank you, John, for being here. 
+
+JOHN CLEESE: We should say something just to make sure the sound's all right. 
+
+BETA MANNIX: Yeah, can people hear us? Are we good? Yes? 
+
+JOHN CLEESE: The carts in the [MUTTERING]. 
+
+[LAUGHTER] 
+
+[MUTTERING] 
+
+[LAUGHTER] 
+
+Can you hear me? Victor Borge used to do this with an audience. He would say, can you hear me? And there'd always be some people at the back better who would shout, no. And he would say, how can you answer my question? 
+
+[LAUGHTER] 
+
+BETA MANNIX: There you go. So what I'm going to try to do is ask you a few questions. We've talked about a few of them. I will admit that in advance. And then we're going to open it up for questions from the group here, which you've agreed to do. 
+
+So since we're at a university, I thought I'd start with a little of your university life and schooling too. So I've done a little research on that, as you know. 
+
+JOHN CLEESE: Before we go on, there's a strange humming sound. 
+
+BETA MANNIX: There is a humming, a bit of a humming. 
+
+JOHN CLEESE: And we need to address that because otherwise, it's going to distract people. Is there anything that we can do to help? I talk louder or less loudly. 
+
+BETA MANNIX: Is that us or someone else? 
+
+JOHN CLEESE: That's better, isn't it? 
+
+BETA MANNIX: Well, I started going in and out. 
+
+JOHN CLEESE: Are you getting it with me or just with Beta? 
+
+[INAUDIBLE] 
+
+BETA MANNIX: Is it just me? 
+
+JOHN CLEESE: It's just you. Or just your-- 
+
+[LAUGHTER] 
+
+it's just your mic. 
+
+BETA MANNIX: Is it my mic do you think? Make it lower? Is that-- Is that better? 
+
+AUDIENCE: Yeah. 
+
+JOHN CLEESE: Yeah, that's great because what happens in these circumstances usually as that people soldier on pretending that nothing is wrong. 
+
+BETA MANNIX: I can take if off. I that any better? Yeah? Oh. 
+
+JOHN CLEESE: All right, so I think we solved that one. 
+
+BETA MANNIX: You told me you weren't a high-tech person before. 
+
+JOHN CLEESE: Oh, I'm completely. I mean, the joke about being Q in the Bond movies is that when I did it the first time, I wasn't Q. I was R because Desmond Llewelyn, who was Q in 17 of those movies, he had said to the Bond people he felt that he needed an assistant. So it was his suggestion that I come in. 
+
+And I was there talking to him and Pierce Brosnan. And we were all in fits of laughter about the fact we're all absolutely hopeless at technology. And here we were as the gadget meisters handing this stuff over to Bond. And none of us had the slightest idea how any of it worked. 
+
+[LAUGHTER] 
+
+Yes, not strong on set technology. 
+
+BETA MANNIX: That wasn't it. That's not yours. 
+
+All right, so let me ask you a little bit about how you got started doing what you're doing, which isn't a particularly straight path, I don't think, because you start it off going to a fairly well-respected prep school. And you took your A Levels, which we think as an advanced test, really, in things like mathematics and physics and chemistry. You taught science. You told me just today you taught history. 
+
+JOHN CLEESE: Yeah. 
+
+BETA MANNIX: You went to Cambridge. You read law. You have a degree in law. 
+
+And then life took a different route for you. 
+
+JOHN CLEESE: Well, how many people really know what they want to do? 
+
+BETA MANNIX: I don't know. Let's talk to some of these kids. 
+
+JOHN CLEESE: Put your hand up if you really think at this stage you know what you want to do with your life? You see? What is it? That's good. What is it? Is it one in five? Is it 5%? It's just over 5%. 
+
+I've always been amazed that some people know what they want to do. And a lot of my heroes are people who just decided to do something, like I have a connection with a wonderful conservation zoo on the island of Jersey, which is a small island. Actually, it really should be French. But it's English. It's off the coast of France. And a guy called Gerry Durrell started a conservation zoo there, which is now the model for most of the conservation zoos in the world. And Gerry always knew that that was what he wanted to do. And I think it's amazing when somebody knows and just goes for it. You know? 
+
+And I have a friend in London called Brian Magee who's a philosopher. And he always, always was fascinated by philosophy. But he didn't want to become a member of a university philosophy department because he said if you do that, you have to stay up with every current trend in philosophy. And he thinks a lot of them are not worth staying up with. So he became a broadcaster who talked about philosophy. But he has done that all his life. I had lunch with him three weeks ago. He's now in his late 70s. Here was a guy who knew what he wanted to do. 
+
+And I find that wonderful. But I have never known what I want to do. All I know is that I want to do the next project. Do you see what I mean? And I think deep down, psychology has always been my fascination. And I think when I was 15 or 16, I saw a few documentaries on BBC television that were about psychology. And I can still remember some of them. 
+
+I mean, there was one in which a cat was offered a saucer of milk and a saucer of alcohol. And of course, it drank the milk and ignored the alcohol. Then they deliberately did things to it to frustrate it. It started drinking the alcohol. 
+
+[LAUGHTER] 
+
+BETA MANNIX: That's right. 
+
+JOHN CLEESE: Yeah? 
+
+BETA MANNIX: Yeah. 
+
+JOHN CLEESE: And there was another one where somebody was hypnotized. And he was told that when the hypnotist returned to the room, he should go to a vase of flowers, take the flowers out of the vase, and pour the water on the floor. And that's exactly what happened. The guy walked in. He went over. He poured the water on the floor. When the guy said, why did you do that? He said, I-I-I-- I sort of thought I saw some smoke there, and I thought someone had dropped a cigarette there. And it was quite clear to me that he was making it up. He had no idea why he poured-- And that just fascinated me. That was my first experience of rationalization. 
+
+So I think I wanted to know about psychology. But I went in the biology group. And the teaching was terrible. Dr. Davy, I mean, just hopeless. 
+
+BETA MANNIX: You're going to call him out. 
+
+JOHN CLEESE: I'm going to call out his name, Dr. Davy. And Stubbs was the other guy. And there was another guy called Lindsay Jones, who everyone called Flimsy Bones, of course, who taught physics. And at the end of the first term, I came forth in quite a large class in the physics. And you'd think that was OK. OK? Now, I'll tell you, I came forth with 27%. 
+
+I knew I was in trouble. So I switched to the physics class. Got my A Levels. Got into Cambridge on science, but wasn't deeply interested. So I had to switch to law because there was almost nothing else I could switch to. 
+
+BETA MANNIX: So you're saying law is easier. 
+
+JOHN CLEESE: Well, law was easier for me because I'm fairly precise with my use of words and I can think in terms of categories, which is all law is until you start practicing, and then it's about villainy and low cunning. 
+
+[LAUGHTER] 
+
+I'll tell you my favorite joke about lawyers because it actually involves universities. What they say is that in the psychological departments of universities now, for their experiments, instead of rats, they're using lawyers. There are three reasons for this. One is there's more lawyers than rats. Secondly, there's some things that rats won't do. 
+
+[LAUGHTER] 
+
+And the third is that in the past, there was a bit of a problem because sometimes the experimenters got fond of the rat. 
+
+[LAUGHTER] 
+
+And I want you to know that telling you that joke has got nothing to do with the fact that I'm going through a divorce at the moment. 
+
+BETA MANNIX: No. 
+
+JOHN CLEESE: So the point was I was fascinated by psychology. But it wasn't for about 25 years that I was able to get back to it by a circuitous route. 
+
+BETA MANNIX: And keep coming. And I would talk to you about that in a bit because you when you come here, you certainly spend a lot of time talking to psychologists as well. And it comes up throughout your entire career, I think. 
+
+JOHN CLEESE: Well, it fascinates me. I mean, the most interesting thing in the world is how this thing works and why we do the things we do. 
+
+BETA MANNIX: Well, but let me come back to the writing for a minute. Then I want to come back to the psychology piece of it too because in your writing, I think, you see that a lot. When you decided law wasn't for you, you go on to write for the BBC. And so much of your work is writing really. 
+
+JOHN CLEESE: Yes. 
+
+BETA MANNIX: I think a lot of people know you as an actor. But I'd say much of your work is about writing. 
+
+JOHN CLEESE: That's right. I always think of myself as a writer-performer. In other words, I write the thing and then I perform it. But the interesting bit is writing it. 
+
+BETA MANNIX: Is the piece of producing it. I see that a lot in what you do. And what's interesting to me, I think too, is that you've talked about some of the earliest work you did in Monty Python was with a group, this group of Graham Chapman and Michael Palin and the Terrys. And you really made no secret that you were not necessarily one big happy group of guys. 
+
+JOHN CLEESE: Well, that's right. That's right. 
+
+BETA MANNIX: You didn't necessarily get along that well. 
+
+JOHN CLEESE: Well, most of you guys know a lot about music. I'm sure I know nothing about it. But you can all think of bands. And how many of them have stayed together? A very special, select group. And on the whole, they break up because there are always tensions. Between any group of human beings, there's some degree of tension. There's some degree of-- what's the word? Diversity, and that means, often, conflict. 
+
+And that's why I know Beta well because I'm fascinated by the way people work in groups. And she's taught me an awful lot about her research to do with how people interact and particularly, creatively. 
+
+So it's interesting we're talking about the Python group because the funny thing about the Python group was it was democracy gone mad. I mean, no one was in charge. And it's very unusual, I think, to get a good group of people working together satisfactory when no one is in charge. 
+
+BETA MANNIX: Well, do you think did that it made people better because it seems like you did play, a lot of times, to your strengths? I mean, I think about some of the things that you did oftentimes where-- you obviously are brilliant at physical comedy. You obviously play well-- I'm sure I'm not the first person to notice-- the angrier person in the group. Right? 
+
+JOHN CLEESE: Yeah. 
+
+BETA MANNIX: Sort of that seething rage that's going to come through. 
+
+JOHN CLEESE: Well, I think the English are terribly funny when they're angry because they absolutely don't know how to do it. And there's an episode that Connie-- my first wife is American. In fact, all my wives have been American, as far as I can remember. Let me see. 
+
+[LAUGHTER] 
+
+Yeah, yeah, all of them. So Connie and I wrote an episode. It's called "Waldorf Salad," if you know that one, which is all about the fact that Americans know how to complain and the British don't. The British will sit there, as it actually happens in that episode, saying, isn't it awful. And this food is dreadful. And they haven't cooked the potatoes. And somebody comes up and says, is everything all right? Very nice, indeed, thank you. Absolutely. All they then do is never come back. 
+
+But the English are very, very poor at complaining. They equate being angry with losing their temper. And it's obscene nothing to do with losing your temper. Anger is a kind of energy, which if you can control it, gets a lot done. But if you lose your temper, you dissipate the anger and make a bit of a fool of yourself. 
+
+But in England, to be angry is almost a loss of face. It's very strange, a huge cultural difference. 
+
+BETA MANNIX: So how were you able to, if you think about this group of people-- you talked about democracy gone mad. So was there someone who was eventually was able to take control of that group to make the decision? Or how do you decide this is the-- 
+
+JOHN CLEESE: Well, what really happened is there were two people in the group who were slightly dominant. There was me, and there was Terry Jones. And Terry Jones is small and dark and Welsh and a bit hairy. And the problem with Terry is that he simply does not understand that the Welsh are a subject race-- 
+
+[LAUGHTER] 
+
+--who God put upon the planet to carry out menial tasks for the English. Now, why he doesn't get that, I just don't know. It's beyond me. But it was always a sort of a bone of contention. 
+
+But seriously, he and I used to lock horns and disagree on almost everything because I was rather snotty and superior and using a cold, rather sarcastic intellect. And he was all Welsh fervor. And he felt strongly about absolutely everything, which infuriated me because I didn't mind him feeling strongly about some things, but he felt strongly about everything. And he had to have his way about everything. 
+
+So we would lock horns. And the other four, to switch analogy, would get on the scales. And because we were balancing each other out, the others would get on. And then the majority view could pretty much prevail. 
+
+And the extraordinary thing was, if you want to understand the Python group, we were six writers who happened to perform our own material. So all these squabbles and fights were about the material. They were never about the casting, which is weird, isn't it, because you'd think we would want the best parts, but we didn't. Once we'd written the material, we knew perfectly well that Graham should play that and Michael should play that. It was obvious to us. 
+
+BETA MANNIX: Right. So if you go back to your education with science and law. And I think you studied religion as well, right? Were all those things important pieces in your ability to write these unbelievably, hysterically funny sketches? I mean, where does all that come from, your ability to do that? Or was it just a waste? The education was just a waste? 
+
+JOHN CLEESE: No, no, no. 
+
+BETA MANNIX: I was hoping you were going to say no. 
+
+JOHN CLEESE: No, it did teach me to think. I mean, I think a lot of it-- when you look back on it and see what you learned-- for example, take trigonometry. It may have been reasonably good for training my mind. But remembering that the sign of the perpendicular of hypotenuse and all that kind of thing, it was not of great value to me in my later life. And I was taught absolutely nothing about, for example, aspects of religion, which I think are really fascinating, like mysticism, which after all, is what the founders of most religions were misfits, which is something that's completely ignored when religion is taught because it's made into an intellectual theory, where really, it starts with experience. 
+
+I was not taught anything about health or the way the human body worked, which would have been really useful. I was taught nothing about psychology, which would have been fascinating. But there was a curriculum there. And some of it was useful, and some of it wasn't. And I think it needs to be revised a lot. But the important thing was I think I was taught to think analytically. 
+
+But you see, the interesting, Beta, and you would know this, is that if anyone wants to get in for an MBA, all the questions that they're asked to see whether they were qualified to do this splendid program, wherever it is, all those questions are about the critical-analytical thinking. And there will not be a single question to test your creativity. 
+
+And yet, if you think of all the people who really made a difference, the Edisons, these were people who are immensely creative. Now why would it be that you can get an MBA program without anyone testing your creativity or making any attempt to suggest how you can become more creative? I mean, do you realize how insane that is? You see what I mean? It's a terrible, insane blind spot. 
+
+BETA MANNIX: So where do you learn that? Or how did you learn that? 
+
+JOHN CLEESE: Well, I learned it because when I was at Cambridge, there was a club there called the Footlights at Cambridge, which was like the Hasty Pudding. And I joined it. And I liked the people in it because they were a complete mixture of faculty. They weren't all English people. There was no drama department at Cambridge at all. I've never had a drama lesson in my life. I've simply watched people who were good and stolen from them, seriously. 
+
+So there were a very interesting-- there were classicists and historians and scientists and engineers and English people. It was fascinating. 
+
+And there was also a big difference of class. We had one or two lords and several people from very poor working class homes. And they all seemed to come into this clubroom, where you could get lunch and get a drink in the evening. And there was a little stage about half the size of this. 
+
+And I loved being there. And the price of being there was to produce a sketch and perform it now and again. And I suddenly discovered that if I was given a sheet of paper, I could sit down and after 2 1/2 hours, I would have written something which had a very good chance of making people laugh. And I suddenly discovered that I had this creative ability. And yet my entire education, from the age of six to 24-- I was very old when I left Cambridge. I went through that entire period without a single teacher ever telling me that I was in any way creative. 
+
+And I think the problem with the educational system is that by and large, after the kids are allowed to paint when they're young, when that stops, it's all about developing what you can shorthand as the left brain. And very little of it is about the right brain. And yet I believe that a pretty happy and successful life has to do with getting a balance between the two. 
+
+And I think to go right back to your question of about 25 minutes ago, I think the reason that I've been successful writing comedy is that I can be creative, but I've also got a critical mind so that when I've come up with stuff with my creative side, I can then come in and analyze it and figure out what works and what doesn't work. 
+
+BETA MANNIX: So where does criticism play into this? I mean, recently, you've taken on, I believe, the title of contributing editor-- is that correct?-- at The Spectator, which is a British magazine, a very well-respected British magazine. And you have an article-- you can Google it if people haven't seen it-- which really talks about some really scathing criticism you had in your career. And it's not helpful criticism. It's just mean-spirited criticism. 
+
+JOHN CLEESE: But it was very funny to be asked to write for this magazine, which had never given me a good review in 30 years. So my first piece was actually quoting all these horrible reviews. Right? 
+
+BETA MANNIX: Nasty, yeah. But there's a difference between useful criticism that you want to take on and say, I'm going to make some changes as a result of this-- 
+
+JOHN CLEESE: Yes. 
+
+BETA MANNIX: --and mean-spirited criticism. And as you also say, the ability to have self-reflexion and internal criticism. 
+
+JOHN CLEESE: Well, you see, the great thing about being in the Python group is that that group we're really, really good on scripts. And they were pretty good on performing. So if you read a script out to that Python group and they laughed at some of it and didn't laugh at other bits, it was hard to find better criticism than you'd get from that group. People would say, this is strong. Why don't you do this? Why'd you do that? I don't think that works. And the feedback was phenomenal. 
+
+And I think we need that. In In fact, I have a speech I do to business groups in which I say, isn't it terrific that guided missiles get so much criticism, by which I mean-- I hate this mic. It keeps going on and off, doesn't it? 
+
+BETA MANNIX: Yeah, I think it stopped again. Oh, there it goes again. 
+
+JOHN CLEESE: Is there anything we can do Mr. Technology is in charge of auditory problems to make it a little more consistent? Can they hear me when I asked that question? 
+
+[LAUGHTER] 
+
+BETA MANNIX: Yeah, I'm trying to figure it out now if it's both of us. 
+
+JOHN CLEESE: Because I'd be happy to use some feedback here if I can get it. 
+
+[LAUGHTER] 
+
+But answer came there none. 
+
+BETA MANNIX: No, nothing, nothing. 
+
+JOHN CLEESE: The reason I say this silly thing about guided missiles is that guided missiles, every moment, they're sending out signals saying, am I on target, and constantly getting signals back saying, no, down a bit and a foot to the left. And they're doing that all the time. And a lot of us are so sensitive to criticism that we don't want people doing that. 
+
+The only thing is that criticism has got to be offered in a supportive and friendly way so that I'm on your side, but wouldn't it be better if. Do you see what I mean? 
+
+And a lot of the time, I think that when criticism is offered, it comes out of anxiety. And people are immediately focusing on what's wrong and needs to be fixed, whereas any time that you're giving someone feedback about something, the first thing, really, is to try and find some things you can say-- really, this is good. It can be better, but it's worth working on, well done. Now this is how I think you can make it better. And if you put criticism within that framework, then people can hear it. 
+
+But if you immediately start off by saying, well, this is wrong, and this is wrong, then the shutters go up because we all have very fragile egos. I'm sorry. But our egos are very fragile. And in order to take criticism, it has to be offered in the right way. Does that partly-- 
+
+BETA MANNIX: Yeah, no, I think that makes sense. We're here at a university. And you've been teaching, I think. And as you see that, it's something we can all take on. I think it's important. 
+
+But I'm interested to know if that's also something that is it harder for people to be critical of you? Or do you find it harder to get good criticism now that you are-- let's face it-- famous? 
+
+JOHN CLEESE: Yes, people are too impressed in the country by fame. Oh, can't we get these mics right? I mean-- 
+
+[APPLAUSE] 
+
+What is the problem? The guy has only going to get the sound right. He doesn't have to write a piano concerto or design a cathedral. You know what I mean? He's hanging upside down from a wire? He's just got to make two mics work. Now can we manage this? 
+
+[LAUGHTER] 
+
+BETA MANNIX: He gave gentle criticism. It's fame. So it's gotten a little more difficult. 
+
+JOHN CLEESE: Well, and it gets more difficult because people-- 
+
+[LAUGHTER] 
+
+I'm going to give this to you. Will you burn it, please? 
+
+[LAUGHTER] 
+
+[APPLAUSE] 
+
+If we don't get mics, you can go home now. I'm just going to talk. Can you hear me OK? 
+
+AUDIENCE: Yes! 
+
+JOHN CLEESE: This is what I used to have to do [INAUDIBLE] when I was doing this show in the West End, you didn't have mics. You just projected your voice. Of course, after four days, you were talking like that. Anyway, so hopefully, I can manage it. 
+
+So what are we talking about? Feedback. If you get famous, people get so respectful of you in this country if you've become famous. You know? There's a kind of reverence, which is really quite sickening. It's the opposite in England because in England, if you're very famous, everyone's envious of you. If you want to be really popular in England, have a big public failure. 
+
+[LAUGHTER] 
+
+And nobody feels anything, so they all feel really good about themselves because they've come to your rescue and showed that they're still your friends despite the fact that you're a terrible failure. 
+
+Here, there's a big problem getting feedback. If I show a movie and I say to the audience afterwards, what do you not like about the movie, they won't say anything. I have to phrase it very, very positively. I say, if I'm going to edit that show tomorrow, what two or three things can I do to make it better? And then they'll tell. You see what I mean? You have to phrase it in this way. 
+
+People don't like offering criticism. How many times have you really said to any of your really good friends, you need to look at this [INAUDIBLE], if you know what I mean? 
+
+[NERVOUS LAUGHTER] 
+
+Some of you don't get much useful feedback. This is Jeremy. He looks after me. [INAUDIBLE] 
+
+AUDIENCE: Oh, yeah, he has your Blackberry in his [INAUDIBLE]. 
+
+JOHN CLEESE: I did that. Yeah, so maybe it's a fateful move. So that's what I'm saying about criticism. It's much harder to get good criticism than you think. And it's very important when you give criticism that you give it in a positive context. Is that OK? 
+
+BETA MANNIX: Yeah, so let me ask you this. This is related to this. I've seen you interviewed. Especially before the election of President Obama, you were certainly very, very positive about President Obama, a very strong supporter. And one of the things I heard you say about him and about the election, about politics in general is really a lot of disappointment about our inability to elect a president in this country that was really an intellectual superior. 
+
+JOHN CLEESE: Hmm. [INAUDIBLE]. 
+
+[LAUGHTER] 
+
+BETA MANNIX: Or at least somebody who wasn't worse. 
+
+[LAUGHTER] 
+
+And you could be anybody. Because you've really pulled no punches about that. And I think that that has been related, also, to this idea of open communication, frankness, ability to talk about what's important. And that's about feedback too. That's about being able to talk about important issues, isn't it? 
+
+JOHN CLEESE: Yes. 
+
+BETA MANNIX: I mean, I'd be surprised [INAUDIBLE] about how, really, you were angry about it. You were not-- 
+
+JOHN CLEESE: I was angry. I have to tell you a strange story about this today. Because I went on Keith Olbermann towards the end, I think, on Friday before the election. Because I really wanted people to know about that remark that John McCain had made. When he was in front of a large audience, he had addressed them as my fellow prisoners. 
+
+[LAUGHTER] 
+
+I thought it was one of the funniest things I had ever heard in my life. I said [INAUDIBLE] what else could you say that would be as much of a giveaway as my fellow prisoners? So I went on Olbermann. 
+
+I'm telling you this because this afternoon I was taking exercise in the gym here at the [INAUDIBLE]. And I switched on the television and there was Bill Maher. And out comes Keith Olbermann. And do you know the first thing I note about him? 
+
+AUDIENCE: [INAUDIBLE] 
+
+JOHN CLEESE: Yes, first of all, no. I went-- And I knew what I loved about Keith is he was getting angry. But I think the problem in America is that you have a head of state who is also the top political guy. You see, in England we have a queen separate from the prime minister. And this means we can be quite rude to the prime minister without insulting the figurehead of relations. 
+
+Your problem is you're much too respectful to the president. I mean, George Bush would not have [INAUDIBLE] a single one of those press conferences in the UK. They would have sniffed out the fact that he was quite inadequate at those press conferences. [INAUDIBLE] but he was completely inadequate. Oftentimes he was rambling. He'd start off with something. It was like listening to Sarah Palin. You don't know where they're going. 
+
+[LAUGHTER AND APPLAUSE] 
+
+[INAUDIBLE] see the chance to produce two or three of the phrases that Cheney made [INAUDIBLE]. And then they meander around. I mean, it's pathetic. I mean, there he is representing what is the most important country in the world. Can you imagine what the rest of the world thought? It's embarrassing because we want America to be great. 
+
+I felt a clutch of emotion when I said that because in the '60s, we looked up to America. It was a beacon, you know. It was a smart place. Really a smart place. And we loved that, because everybody wants a good role model, you know. 
+
+And I was so sick of English politics at that time. And it was marvelous to see somebody like Kennedy come in. And suddenly the place became smart. I mean, it was [INAUDIBLE] it was cool to be bright. And that was wonderful. 
+
+And then you have eight years of this rubbish. And nobody [INAUDIBLE]. Nobody gets up and says, what happens-- where is-- British would be angry. Where is the American sense of outrage? You know? Because it matters! 
+
+BETA MANNIX: You have hope for us now? 
+
+JOHN CLEESE: Yes, I do now because I think he's very bright, more than bright. Because there's a lot of bright people. I think he's astonishingly emotionally intelligent. 
+
+BETA MANNIX: So you'd like to talk about [INAUDIBLE]. You're really interested, I think, in this connection. And I think you think it's lacking. You have work that talks about the connection between doctors and their patients, between managers and their employees. And the lack of communication, the lack of connection, which a lot of it gets down to this lack of emotion, and the willingness to express the appropriate emotion, enough emotion. And it's frankness-- 
+
+JOHN CLEESE: Flexibility and openness and all those things. 
+
+BETA MANNIX: Well, why is that so hard for people? Americans would like to think that we're good at this, that we're open, we're frank, we're able to do this. But we're not, really, are we? 
+
+JOHN CLEESE: Well, I don't know. I think in the '60s, you were. I thought that there was much more openness and much more clarity and much more freedom of communication. And you see, the English are very uncomfortable with emotion. They're just so [INAUDIBLE]. It makes them uncomfortable. The whole society in England was for a long time basically, we've got an empire to run. We don't have time to be depressed. 
+
+[LAUGHTER] 
+
+We were a terrible bunch of [INAUDIBLE] in the 1700s. You know, we were sort of a bunch of rip-off people. We were buccaneers and cheats. And we were very entrepreneurial. 
+
+Then suddenly we found we had an empire. And then we started wearing gray. We weren't gray until we had an empire. And then people put on bowler hats or stovepipe hats and started taking themselves very seriously. 
+
+And I think what you can do is you can have a society that's serious without solemnity. You see, solemnity's a particular sort of face that you put on. And well, sometimes it's appropriate, like public funerals. [INAUDIBLE] for any president or prime minister or the prime minister dies, it's absolutely right to have a proper ceremony in which people are naughty. We're putting whoopie cushions [INAUDIBLE]. Pay your respect in public on those occasions. 
+
+But the rest of the time, what's the point in solemnity? And yet we can have a very serious discussion about our kids' education or something like that and still be laughing. So there's a way you can have a nice flow of ideas and a simplicity of emotion, and we can explore different feelings without the thing having a monotonous tone to it. Do you see what I mean? 
+
+BETA MANNIX: So humor's going to help. 
+
+JOHN CLEESE: Yes. 
+
+BETA MANNIX: When you see-- so your production company, for example, the management company you have really does-- you tackle topics like coaching and assertiveness and how to deliver bad news for managers who somehow can't figure out how to do that. It seems like the skills they should have with humor. 
+
+JOHN CLEESE: Yes. I mean, for example, one of the things I've learned with theater work is if you have bad news to give someone in an interview or in a situation like that, give it right up front. Don't beat about the bush for 25 minutes, because if they sense that something's up, they get more and more anxious. Tell them the bad news. 
+
+If you've got to fire someone, then say it at the start of the interview. And then give them a chance to be a bit emotional, which is absolutely reasonable. And then, as they come out of the emotion, you can start discussing how you handle it and what you do about it. 
+
+And in England, we recently had terrible industrial relations for years. If we knew we were going to fired, you know what used to happen? The directors of the company, the fat cats, would stick a notice on the board at 3 o'clock on Friday afternoon, get in their cars, and drive off to the golf course. You see what I mean? Refuse any kind of ordinary human interaction. And if you behave with people and just treat them as proper human beings, they can take bad news. What's the worst thing you can do to kids? Like, it's delighting. 
+
+Robin Skinner. You might have read those books. Robin said, kids are unbelievably resilient provided [INAUDIBLE]. So it's just a question of getting a bit more emotive. And I didn't feel that was the case in the last eight years, because I mean, who's going to be open with Cheney? What's the point? And these people know it. 
+
+Rumsfeld used to start his big meetings with a head count. They say, who's [INAUDIBLE]? Meaning, who's paying for this? Who wants this meeting? That's a great start, isn't it? Who wants this meeting? Just [INAUDIBLE] really this is what we want to hear. And then they got completely stuck on-- because unlike the guided missile, they obviously don't get any feedback. 
+
+And Obama gets in there and he puts in people with different ideas and they have a good argument. That's how you make things exciting and vibrant. Not with a bunch of know-it-alls at the top who are treating all the people underneath as second-class citizens who have got to do what they're told. Where somebody once said, I think it was Tom Peters once said, he said, why not use the intelligence of the entire organization? Instead of just using the intelligence of the CEO and have everyone else carry out his tasks. 
+
+BETA MANNIX: So this is really cycling back to your interest in psychology, in a lot of ways. 
+
+JOHN CLEESE: Yeah, yeah, yeah. 
+
+BETA MANNIX: So it sounds to me-- I mean, a lot of this is about learning for you, it sounds like. I mean, a lot of what you've done from the very beginning has been about learning, bringing in new ideas, and constantly doing something new as you go. I mean, that's the only thing that I think is fascinating, that you never said, I'm going to be a writer, I'm going to be an actor, I'm going to stop here, and that's good enough. You have done, I mean, you name it. You've been a producer, you've been a director, you've been a writer of not only screenplays but also books, of-- 
+
+JOHN CLEESE: Well, people go on about it. But I've also never done anything brave. I've never been in the armed forces. I'm hopeless musically. I have bad visual sense. I have no visual memory. I can't think in three dimensions. Things like [INAUDIBLE]. 
+
+BETA MANNIX: You should [INAUDIBLE] on this. The things that you just said, these are the things I'm great at. These are the things, really, I'm not great at. Or are there a list of things that you said, I just want to keep trying? Do you have a short attention span? What is the-- 
+
+JOHN CLEESE: No, I think I do have a short attention span because I think when I've done something and done it reasonably well for a bit, I want to do something else. And then there are all the problems about being on stage doing this show. 
+
+I mean, we were talking about Cambridge. My last year of doing this show in the local professional theater in Cambridge. And it was supposed to last two weeks and then we were all supposed to go off and be, in my case, a lawyer or a teacher or work in advertising. And all of us-- there were people there saying, do you want to come and work for BBC? And we would like to take your show and put it on on the West End. I'm sure you know [INAUDIBLE]. And so I got into it completely by accident. 
+
+And to answer your question, after six weeks of doing that show, I had a week of being crazy with boredom because I had done every single sketch in that show as well as I could. And the seventh week I thought, well, what do I do now? Go out this week and do everything slightly less well. See what I mean? 
+
+And it kind of depressed me. And I realized after a time that you just have to take pride in making it as good as you can each night. And it can't go on getting better, really. If you keep it fresh, it doesn't go on getting better. Which it has up to that time, because it takes you six weeks to figure out how to play it and to make everything work. 
+
+And because of that, when we'd done two series of Monty Python, I thought we were repeating ourselves and that we were taking bits of sketches and putting them together, that we were just permutating and combining and weren't coming up with anything new. In fact, in the third series, there were only two sketches that I thought were genuinely original. 
+
+And the others didn't seem to mind. They were just having a good time. And they just didn't hear me say that what's the point of doing this if we're not being original. If we're not creating something new. So that's basically why I split. 
+
+But there was another reason why I split, which was something to do with the tensions in the group. And that is that Graham Chapman, between the beginning of Monty Python in '69 and the time I left in '73, he had become a fully fledged alcoholic. And nobody else wanted to work with [INAUDIBLE]. 
+
+BETA MANNIX: That would be difficult, yeah. 
+
+JOHN CLEESE: Yeah. 
+
+BETA MANNIX: And I must say, I have seen your eulogy of Graham Chapman on YouTube. 
+
+JOHN CLEESE: Have you seen that? 
+
+AUDIENCE: No. 
+
+BETA MANNIX: You should, yeah, wander onto YouTube and see that. It's pretty good. It's pretty funny. Let me ask you. I want to ask one final question and then open it up to the audience here for questions. 
+
+So I have to know and I have to say. My husband's somewhere in the audience. But yes, there he is. So one of his favorite movies of all time is The Magic Christian, which for those of you who haven't seen it, all you need to say is Peter Sellers, Ringo Starr, and John Cleese. Yul Brynner's also in it. [INAUDIBLE] If that doesn't pique your interest, you need to see it. You're now starring in Pink Panther 2, 1 and 2. [INAUDIBLE] 
+
+JOHN CLEESE: Shh. Shh. 
+
+BETA MANNIX: Yeah. Peter Sellers, right? So it's going to be associated with those. But Magic Christian was a movie that you also worked on as a writer and were in. And so you have this interesting cycle of the Peter Sellers connection in your very early career and now later here now, 40 years or so later. And I think it's really fascinating. 
+
+And I wonder if you think that there's any even connection there that has meaning given your interest in things that are mystical, that are psychological. Or that's just crazy. It's just a coincidence. 
+
+JOHN CLEESE: No. I'm beginning more and more to think that there's something. I don't know what it is. But at least it's interesting about what Jung called synchronicity. And I'm just convinced the older I get that this is kind of significant. 
+
+I just think it was very strange that there I was on the exercise bicycle today. And on comes Keith Olbermann, who's sort of a friend of mine but I haven't seen him [INAUDIBLE]. And there he is with Bill Maher, and there they are talking about [INAUDIBLE] and there I am sitting in [INAUDIBLE]. You see what I mean? 
+
+BETA MANNIX: Right. 
+
+JOHN CLEESE: I don't know what it means, but there's something about it. I really believe that. And I think that the more I read about [INAUDIBLE] physics, the more I'm quite convinced that this is a very much weirder universe than any people would ever [INAUDIBLE]. 
+
+And people get very upset with this kind of thing. And if you want one example of what I'm talking about, google the following word, Gauquelin. G-A-U-Q-U-E-L-I-N. Because this is a guy who did statistical research which shows almost, I think, incontrovertibly that there is something-- whatever it is, I don't know-- in astronomy. He shows that, for example, generals and athletes and politicians have Mars running over the horizon at the time of their birth more than they statistically should. And with [INAUDIBLE]. 
+
+Now you may think, what crap. But look at the statistics. It's very strange, and yet no one's talking about it. So I had dinner last night with Daryl Bem, who shows-- 
+
+BETA MANNIX: He's a college professor here. 
+
+JOHN CLEESE: Yeah. Brilliant guy. Great fun. He's also a magician. 
+
+BETA MANNIX: Oh, yes. 
+
+JOHN CLEESE: Horribly fun. He's got a paper coming out that shows that there's such a thing as free cognition. People know in advance what's going to happen. 
+
+There is a guy, Dean Radin, who works at the Institute of Noetic Sciences, just north of San Francisco. He's done this experiment, which is being reproduced at psychological departments at the best universities all over the world. They put people in front of a television set. And they then show pictures. 
+
+There's three kinds of pictures. There's neutral pictures, like a picture of a telephone or a pair of shoes. There are nice erotic-- not very strongly erotic, but nice, slightly erotic pictures. And then there's horrible pictures, which are pictures of accidents and operations, very bloody and nasty [INAUDIBLE]. 
+
+And what they've shown is, if they put those pads that measure the galvanic skin response on people's measure of anxiety, what they discovered is that before the nasty pictures but not before the neutral ones or the [INAUDIBLE]. Before the nasty ones, which are being generated at random, they can pick up the anxiety of the people who are about to see the nasty images. 
+
+Now how can they possibly know? Because they're not reacting in that way when they get a neutral image or when they get a person being erotic. Two seconds beforehand, they know that they're going to see a nasty one, and yet it's being randomly generated. Now I think this is fascinating. But nobody takes it into account because it's [INAUDIBLE] to their current paradigm. So all I'm saying is I don't think they're [INAUDIBLE]. 
+
+But even if you forget all of that and just go down to your own psychology, it is interesting. At 15 I saw this guy throwing water claiming [INAUDIBLE] that might have been smoke from a cigarette butt. And then all this time later, here I am at Cornell spending half my dinners-- having dinners with psychologists. There is a kind of shape. 
+
+And I think if you stay in touch with what you're really interested in, then your lives take on this kind of shape. But if you get pulled off center too much by thinking you have to earn lots of money, right, and go for high status, then I think you can lose touch with your core. 
+
+I mean, the question is, how much do you really need money to make you happy? And all the research shows, not much, right, Beta? 
+
+BETA MANNIX: Yeah, most of the research will show there's really very little correlation. I mean, after a certain substance level-- 
+
+JOHN CLEESE: That's right. 
+
+BETA MANNIX: Train. 
+
+JOHN CLEESE: There's a certain level at $20,000, $25,000. 
+
+BETA MANNIX: $20,000, yeah, exactly. 
+
+JOHN CLEESE: And above that, money doesn't make people happy. 
+
+BETA MANNIX: It's not going to make you happy. 
+
+JOHN CLEESE: No. So they did it. 
+
+BETA MANNIX: I know you all think it's going to make you happy, right? 
+
+JOHN CLEESE: And none of you are believing us. 
+
+BETA MANNIX: Right. 
+
+JOHN CLEESE: None of you believe us. Yet it's actually true. And so if you can do what you are really, deeply interested in, I promise you, you'll have a really good life. If you go out thinking that you've got to do all sorts of things to gain other people's respect like get high status and fame and a lot of money, I don't think you will have a good life. But staying in touch with that core is the basis of it all. God, I can talk. 
+
+BETA MANNIX: Thank you, John, so much. We're going to stop for a minute here. If anyone absolutely needs to go leave and study for that chem test, you should do that now. And then what we're going to do is we're going to take questions from the audience. And what I think, I'll just have you just raise your hand, we're going to call on people and have you stand up and say, basically, your name and if you're a student, what college you're from, I guess. And sort of do that sort of thing. And then go over here, cap, with the-- yeah, yeah. Because you wore that cap, you get to-- if you have a question. 
+
+JOHN CLEESE: Hey, [INAUDIBLE] if you need to leave, [INAUDIBLE] we'll miss you. 
+
+BETA MANNIX: If you need to leave, we can have people do that first. Thanks for coming very much. So let me give people a minute to do that. 
+
+JOHN CLEESE: I want a photograph of people in here. 
+
+BETA MANNIX: Yeah. No, names will be taken while they're outside. All right, so go ahead and stand up and tell us your name. 
+
+ISAAC TAITZ: Hi. My name's-- 
+
+JOHN CLEESE: OK, guys. Listen to his question or otherwise we have to [INAUDIBLE]. 
+
+BETA MANNIX: Quiet down a bit, please. 
+
+ISAAC TAITZ: Hi. My name is Isaac Taitz. And I'm a human development major, which is a more holistic psychology. I'm really interested in dream studies. And since you have such a marvelous mind, I wanted to know, what's your most vivid dream, or what is your dream world like? 
+
+JOHN CLEESE: We have guys interested in dreams. I believe that they're incredibly important for some people. I don't think that they've been very important for me. That's not to say I'm not interested in them. But I think that an awful lot of them are trivial. 
+
+And I think now and again, typically because if you get hot, then-- James House will tell you this. If you're sleeping in a room that's very hot, you do have [INAUDIBLE] types of dreams. But in a sense that's being dictated by the physical surroundings. I mean, sometimes you have a dream which is of extreme importance which has a physical quality to it. And I've read about these dreams, but I don't know if I've ever really had one myself. So I don't find that that is as important for me. 
+
+What I do find is that the more I rely on some kind of gut feeling, it's partly intuition. And I think a lot of it is processed experience, an experience that's being processed at a very, very deep level. The more I rely on that, the happier I am. I sometimes used to go along with things which I didn't feel good about because I felt that I ought to go along with them. Or the fact that I didn't feel quite right about them wasn't sufficient reason not to go along with them. 
+
+And now, if I get that feeling that I'm really uncomfortable about something, I take it much more seriously that I used to, and I think it works for me. But dreams themselves don't matter so much. Or they haven't had an impact. They may one day. 
+
+BETA MANNIX: All right. 
+
+ISAAC TAITZ: Thank you. 
+
+BETA MANNIX: Thank you, sir. Someone else. OK, I see straight back, glasses on, [INAUDIBLE], yes, yes. Very good. 
+
+AUDIENCE: Hi. I'm [INAUDIBLE]. I'm from the College of Arts and Sciences. I was wondering, what do you see as the future of the British monarchy when the queen passes away? 
+
+JOHN CLEESE: Oh. Well, the trouble is, I'm profoundly apathetic about it. I don't really care either way, because I do think it's quite a good idea to split the head of state from the top political guy. And some countries do that with more or less a figurehead president. But I think it is an advantage. 
+
+But I've always been uninterested in the royal family because I think, with the basic exception of Charles, who I think is an interesting man, they're just not very interesting. They are tremendously keen on horse racing. There's nothing wrong with horse racing, you know, but I just don't think that people who are running countries should spend a lot of time watching horses running. It doesn't seem to me tremendously interesting. But that's a personal purview. 
+
+They've always worked very well in England because they've never been tremendously interested in the arts, so they're not suspect in middle England. See what I mean? The only one who was interested in the arts was Princess Margaret. And she was always by far the least popular of all the royal family. So the middle class people looked at them being very important. I think that they have a useful symbolic function. But whether they're there or not, for me is completely unimportant. 
+
+BETA MANNIX: All right. Someone else. Way over. Blue shirt with the stripes. Way over. 
+
+AUDIENCE: My name is [INAUDIBLE]. I'm an alumnus. I'm an alumnus. You mentioned statistics. You are aware of what Mark Twain said about statistics. Aren't you? 
+
+JOHN CLEESE: Well, I thought he was [INAUDIBLE] for saying there are lies, damn lies, and statistics. 
+
+AUDIENCE: Yeah, I thought that was coined. Anyway. 
+
+JOHN CLEESE: Well, the problem is [INAUDIBLE] at the same time. 
+
+AUDIENCE: You know the original Milgram experiments? 
+
+JOHN CLEESE: Yes. 
+
+AUDIENCE: And then they were repeated last year and they found essentially the same result. What's your take on these? 
+
+JOHN CLEESE: Well, my take, I'm afraid, is that there are aspects of human nature which are not very attractive. Would you like to describe the Milgram experiments? 
+
+AUDIENCE: Oh, you could probably do a better job than I can. 
+
+JOHN CLEESE: I guess you've seen them more recently than I have and that was one of the things that I saw on television when I was 15 that got me interested. But basically-- 
+
+BETA MANNIX: Shock experiments. 
+
+JOHN CLEESE: Yeah. You-- 
+
+BETA MANNIX: You mean the shock experiments? 
+
+AUDIENCE: Yeah, yeah. 
+
+BETA MANNIX: --separation. 
+
+AUDIENCE: Well, it was originally done to explain the Holocaust. 
+
+BETA MANNIX: But there are more. Milgram did more than one experiment. 
+
+JOHN CLEESE: Well, do the shock experiments. Explain them quickly. 
+
+BETA MANNIX: But I'm assuming you mean the shock experiments. 
+
+AUDIENCE: Exactly. 
+
+BETA MANNIX: Which he asked people if they would continue shocking someone in another room who they couldn't see who wasn't actually being shocked up to a very, very high level. 
+
+AUDIENCE: And after a while they would stop screaming because they were presumably either unconscious or dead. 
+
+BETA MANNIX: That's right. 
+
+AUDIENCE: They did it again last year, and the exact same results were found. 
+
+BETA MANNIX: And the point was that they were being instructed to do so by someone in the lab who was meant to be an authority figure. 
+
+AUDIENCE: Yeah. And so that means that the humans would not [INAUDIBLE]. 
+
+BETA MANNIX: To why you would expect that. 
+
+JOHN CLEESE: Yeah. I think humans hate being out of step. There's another experiment, but I can't remember who did this. Is it a guy called Last? 
+
+BETA MANNIX: L-A-S-T? 
+
+JOHN CLEESE: Mm-hm. 
+
+BETA MANNIX: [INAUDIBLE] 
+
+JOHN CLEESE: This is all he did. You know what? He brought some people in and say he got this [INAUDIBLE] Every single person in the room was a plant except for one. And they put the guy who wasn't the plant on the end of a row, and they put all the plants in the [INAUDIBLE]. And then they put up something on a common easel. 
+
+And they said, which of these lines is longer, A or B? And it was absolutely clear that A was the longer line. So what happened? All the clients said, uh-- B. B. B, B, B, B, B. And they go over to this guy on the end who didn't realize that it was a setup. And he looks at me [INAUDIBLE]. B is the [INAUDIBLE]? He says, A. They say, thank you. Thank you very much. 
+
+Now we'll do this. Which is the biggest circle? A or B? And they all say A, A, A, A, A. And it gets to him, and it's quite clearly B is the bigger circle. So he said B. They said thank you. There was no pressure on him. They're just nice to him. They say, thank you. Very interesting. 
+
+By the third time it goes down the line, he says the opposite of what he knows is the truth because he doesn't like disagreeing with all the other guys in the room. You see how tragic that is? There's no pressure on him. Nobody's [INAUDIBLE] This is not like Nazi Germany where you could get beaten up if you said something [INAUDIBLE]. You know what I'm saying? 
+
+And yet [INAUDIBLE] by the time they went down the line the third time, he was agreeing. So those are the things that I think make you really need to know about because he makes us very skeptical about how much can we achieve. We need to know that. 
+
+BETA MANNIX: Someone else. Oh, straight back. Let's see. Black top. Yeah. 
+
+CHRISTINA: Thank you for coming out. I'm so pleased. My name is Christina [INAUDIBLE]. I'm a [INAUDIBLE] student. And you spoke earlier about creativity and its absence in the educational system. Could you make a few recommendations on how we as students at Cornell could maybe pursue this aspect on our own? 
+
+JOHN CLEESE: Well, there is a book that I think is tremendously helpful. And the book is called Hare Brain, Tortoise Mind. And that's H-A-R-E. Hare Brain, Tortoise Mind. It's by a guy called Guy Claxton. And I think it's wonderful. 
+
+CHRISTINA: Mm-hm. Yeah. 
+
+JOHN CLEESE: But I mean, really, the next time I come here I should do an excerpt because what I say is different from what most people say. And I'll give it to you in two minutes. 
+
+What it's really about is getting away from the everyday mode of thinking. Because if we're under pressure, we tend to come up with stereotypical thoughts. And that's fine. Because a lot of the time we don't need to take complicated decisions over it. You know what I mean? If we're driving, we don't want to examine the situation. We just want to go and simply get it over. 
+
+So a lot of stereotypical thinking is very, very useful, particularly if we are under time pressure because we can't examine everything. You know? As somebody once said, when you're attacking a machine gun nest, that is not the moment to admire the scenery or have a breakthrough of an idea or see the funny side of it. You see what I mean? That's all right. 
+
+But when you want to be creative, you want to get away from the pressures that put you into stereotypical thinking. And the way you do that is you need to create a space where you can play. 
+
+And there's a great book about play. And what I learned from it is that play has to be separate from ordinary life. And in ordinary life, there's so much going on that we have to remember and get done and I'm talking about all those lists you have to pick up. It's very hard to be playful when you're trying to carry a lot of things in your mind. You have a lot of things [INAUDIBLE]. 
+
+You have to create a space. And you do that by creating boundaries of space and boundaries of time. Space to avoid interruptions. So if you are a fat cat, you can sit in the office and say to your assistant, don't interrupt me for an hour and a half unless the building's burning down. If you're at the bottom of the hierarchy and you're young, then you may have to sit in the park. 
+
+I had a friend at Cambridge who came from a working class family. He had four brothers and sisters. It was a tiny little house. The only place he could get any peace or space was to go into the toilet and sit there. That's where he studied for his Cambridge entrance. He could sit in the park. You see what I mean? You have to be able to [INAUDIBLE] interruption. That's the first thing. 
+
+And the second thing is you give yourself boundaries of time. It starts at this time, and it stops at that time. It's a little bit like a football game. Boundaries of space because there has to be a pitch. And the only people are allowed on the pitch are the players. It starts when the referee blows the whistle. It finishes when the [INAUDIBLE]. That's play. Then you can play. 
+
+And if you can become playful, that's how you become creative. And it's unrelated to intelligence, except at the very sort of-- you have to be above 95%. So that's the key to it, is creating a space where you can play. 
+
+CHRISTINA: Great. Thank you. 
+
+BETA MANNIX: Right here. Looks like tie-dye, it looks like, maybe? I can't really tell. Is it? Oh, it is. It's [INAUDIBLE]. 
+
+DAVID LYNCH: I'm David Lynch. I'm not a student. My buddy said, John Cleese is coming to Cornell. And I said, then I'm coming. 
+
+BETA MANNIX: Excellent. 
+
+DAVID LYNCH: And I mostly came because Monty Python and your work has been so influential for me, and especially in humor, because I'm not very funny at all. And I was wondering if-- and you touched on it. 
+
+[INAUDIBLE] talk more about humor. And I know it's probably a lot about psychology and the human mind for you. But I was wondering if you could talk about its function in teaching and society and how it can be used and all that sort of thing. Pretty open ended. 
+
+JOHN CLEESE: OK. Well, I just did 34 hours at two seminars in San Francisco on this. So I'll try and boil it down a bit. I think the key is this. Any room where there is freedom, people are relaxed, people are content, not frightened, they're not anxious. In that room there's going to be a feeling of ease and spontaneity. And so there's going to be humor present. 
+
+Because you can't be relaxed and spontaneous without there being some humor. May be a lot, it may be less, day by day. It's a kind of measure of, are people relaxed? Now that's a little bit different from jokes. 
+
+I had a friend who traveled on a bus once, and in the front were a lot of Marines. And everyone was telling jokes. And he said, what was interesting about it was that they would tell the joke and everyone would go sort of ha, ha, ha, ha, ha, ha. Ha, ha, ha, ha, ha, ha. It was like a ritual. 
+
+The one thing he noticed is there was no spontaneity. It was almost like a military exercise. Ha, ha, ha, ha, ha, ha. Ha, ha. [INAUDIBLE] and high intimacy. Because people react and it becomes playful, it becomes fun. So I think when there's genuine humor there as opposed to just jokes, I think what happens is that people are relaxing. And that's very good creatively. 
+
+I once-- did you know I once interviewed the Dalai Lama? 
+
+BETA MANNIX: I didn't know that. 
+
+JOHN CLEESE: Yeah. And I said to him, why is it that Buddhists, Tibetan Buddhists, are all [INAUDIBLE]? And he actually answered a slightly different question. He said, what I like about laughter is that when people laugh, they can have new thoughts. 
+
+In other words, as a kind of touchstone, if people are laughing and are comfortable and there's humor, this little bit of play, little bit of gentle, friendly teasing, if all of this is going on, it loosens up the mind. Because if you want people to go on having the same thoughts, put them under pressure. 
+
+And that's why I think being around Cheney must be so awful. He knows everything, you know what I mean? There's no real discussion. He knows exactly everything. And so there's this sort of feeling of anxiety about it. There isn't this easy flow. 
+
+And I have a feeling that in the Obama meetings there will be a little bit of humor there because there's a sort of flow about what's going on. So if you have a touchstone for human beings being in the best place themselves. 
+
+But there is a very interesting academic theory by a philosopher called Bergson, Henri Bergson. I think it's about 1880, 1890. 
+
+BETA MANNIX: Pretty good guess. 
+
+JOHN CLEESE: Yes or-- 
+
+BETA MANNIX: That's the time frame. I can't tell you exactly-- 
+
+JOHN CLEESE: OK. And he wrote a book called Le rire, Laughter. And he said something fascinating, which I really think is this good. He says, first of all, it requires a momentary anesthesia of the heart. Because if you're watching something and it makes you laugh, think about it [INAUDIBLE]. 
+
+At the moment that you laugh, you ever so slightly withdraw some sympathy or empathy for the character. Otherwise you wouldn't laugh. You see what I mean? But that doesn't mean it's cruel, because we can laugh at ourselves. But it just means that for a moment we step back and see ourselves a little bit of distance, little bit of distance. 
+
+And that's necessary before we can laugh. We have to have that slight distance. Because all humor is ever so slightly critical. And what Bergson goes on to say is that it's a social sanction because we laugh together as a group in society. And it's a sanction because we are trying to get people to behave flexibly. 
+
+And he says, what is funny is when we start behaving like machines. That's why anyone, for example, who has an obsession is funny. Because it's mechanical. They're not flexible anymore. They're obsessed with something. And so all manifestations of human behavior are fundamentally not flexible. 
+
+Bergson says we laugh at it because at the deep level we want people to be more flexible. And I think that's very interesting. The only trouble about humor is that, like almost anything, it can be arranged on the spectrum of mental health. 
+
+Because at the one end, you've got nasty humor. You've got the nastiest kind of racial humor. It's unkind. It's punishing. It's not really very funny. It's a way of taking it out of a particular person or a particular group. 
+
+And on the other end you have a healthier [INAUDIBLE] humor, which is basically saying, isn't this saying [INAUDIBLE] human beings absolutely extraordinary? Isn't it insane? Because we are bound to biological principles. And the sort of stuff that the gentleman over there was talking about [INAUDIBLE]. We're bound to laugh, and yet we can look at the stars. As Oscar Wilde said, I may be lying in the gutter but at least I'm looking at the stars. 
+
+And here we are in this extraordinary position of being held back by our ego and our bodily limitations. And yet we can do almost anything with our minds. And when we share that kind of humor, isn't it ridiculous? And that's the best kind of humor because we're all in the same boat. It's absolutely opposite of the punishing kind of humor. 
+
+BETA MANNIX: That was pretty extraordinary. I think I'm going to take maybe one more question. Right here on the aisle here. Yeah, go ahead. Right there. 
+
+CAMERON: Excellent. So my name is Cameron, and I recently graduated as a creative writer. And so speaking to you as a writer, I was wondering, have you ever created a character who was completely psychologically different than you that you had to play? And did you enjoy playing someone who was radically different than yourself? 
+
+JOHN CLEESE: Well, the first character that comes to mind is the character I didn't play in A Fish Called Wanda, which was Kevin's character, Otto. And I have to tell you why I got the idea of this character, and I hope to god it isn't like him. 
+
+I was wondering what Kevin's character should be like. And I got a copy of Los Angeles magazine and I opened it. And there was this double-page spread advertising a seminar which was being given by this little man who was trying to look impressive but kind of looked a bit-- huh. He was called Zen Buddhist Master Ron. 
+
+And I looked at him and he had that hair like a full [INAUDIBLE]. You know what I mean? Very [INAUDIBLE] wouldn't last very long. And I thought, this guy does not look very impressive. And then I saw the headline. And I promise you this is what it said. It said, Buddhism gives you the competitive edge. 
+
+[LAUGHTER] 
+
+And I thought, this is the key to Kevin's character. This is the man who has read everything and understood nothing. So I started writing that. And when I started working with Kevin on the character, I more or less handed it over to him. And at times, he would just improvise. 
+
+For example, do you remember sniffing under the arm? He suddenly did that in a bit of an improvisation. [INAUDIBLE] I said, that was wonderful. What was this about sniffing under the arm? And he said, what? 
+
+[LAUGHTER] 
+
+He was so deeply into the character that he hadn't even realized what he'd done. And he said, oh, yeah, I did do that. I said, but that's wonderful. So we then-- as a writer, you will understand. As we introduced that on page 13, you're repeating it on 22. Then we let the audience forget it and we did it again on page 37. And then we let the audience forget, and we did it on 64. You see what I mean? 
+
+But that is a character I enjoyed writing very much because he was so absolutely different. But there are other characters. For example, the Fawlty Towers guy was based on a fellow we actually-- the Pythons were staying at this man's hotel. So gloriously rude. [INAUDIBLE] over in [INAUDIBLE] who could run this place properly if it wasn't for the guests. 
+
+[LAUGHTER] 
+
+SPEAKER 2: Well, I hope you've enjoyed the last hour of our intellectual adventure. And let's thank Professor Mannix and also Cornell Professor John Cleese. Thank you very much. 
+
+[APPLAUSE AND CHEERING] 
+
+
+
+		</noscript>
+	
+	</div>
+
+	<div id="transcriptRequestFormContainer" class="slideBar">
+	
+
+<form action="" method="post" id="transcriptRequestForm">
+
+<h3>Transcript Request Form</h3>
+
+<div class="inputGroup">
+	<label for="requesterName" class="inline">Name</label>
+	<input type="text" id="requesterName" name="requesterName" value="" size="10" />
+</div>
+
+<div class="inputGroup">
+	<label for="requesterEmail">Email Address</label>
+	<input type="text" id="requesterEmail" name="requesterEmail" value="" />
+</div>
+
+<div class="inputGroup" id="daWrapper">
+	<label>Disability Accommodation?</label>
+	<div class="radioGroup" id="daRadios">
+		<fieldset style="border: none">
+			<legend id="daLegend">Disability Accommodation?</legend>
+
+			<input type="radio" name="transcriptDisabilityAccommodation" id="transcriptDisabilityAccommodationYes" value="yes" />
+			<label for="transcriptDisabilityAccommodationYes"> Yes</label>
+
+			<input type="radio" name="transcriptDisabilityAccommodation" id="transcriptDisabilityAccommodationNo" value="no"  />
+			<label for="transcriptDisabilityAccommodationNo"> No</label>
+		</fieldset>
+	</div>
+</div>
+
+<div class="inputGroup">
+	<label for="affiliation">Affiliation</label>
+	<select name="affiliation" id="affiliation">
+		<option value="Unspecified" selected>-Select-</option>
+		<option value="Faculty">Faculty</option>
+		<option value="Staff">Staff</option>
+		<option value="Student">Student</option>
+		<option value="Alumni">Alumni</option>
+		<option value="Other">Other</option>
+	</select>	
+</div>
+
+<input type="hidden" name="transcriptVideoID" id="transcriptVideoID" value="475" />
+
+<div class="copyBtns">
+	<button class="btn" id="submitTranscriptRequestButton">Send Request</button>
+	<button class="btn" id="cancelTranscriptRequestButton">Cancel</button>
+</div>
+
+	
+	<style type="text/css">
+		input.age {
+			display: none;
+		}
+	</style>
+	<input value="" class="age" name="age" aria-label="please ignore this form field" />
+
+	<input type="hidden" value="" id="feedbackURL" name="feedbackURL"/>
+
+</form>
+
+
+	</div>
+
+	<div id="transcriptRequestFormResult" class="slideBar" style="display: none; padding: 20px;">
+		<button id="transcriptRequestCloseBtn" class="closeBtn">X</button>
+		<h3>We've received your request</h3>
+		<p style="font-size: 14px">You will be notified by email when the transcript and captions are available. The process may take up to 5 business days. Please contact cornellcast@cornell.edu if you have any questions about this request.</p>
+	</div>
+
+	<p><p>Actor, writer and film producer John Cleese reflected on creativity, group dynamics and celebrity during his latest Cornell visit, April 19, 2009. In an on-stage interview with Beta Mannix, vice provost for diversity and faculty development,  in Statler Auditorium, Cleese discussed his work and the lessons he has learned in life.</p><p>Best known for his work on the 1970s British television series "Monty Python's Flying Circus" and "Fawlty Towers," Cleese served an 8-year term as A.D. White Professor (1998-2006) and currently holds the Cornell University Provost's Visiting Professorship. </p></p>
+
+	
+
+	<div class="more-about">
+	<h3>More About</h3>
+		<ul class="tags">
+		
+			<li><a href="//www.cornell.edu/video/tags/theater">theater</a></li>
+		
+			<li><a href="//www.cornell.edu/video/tags/creativity">creativity</a></li>
+		
+			<li><a href="//www.cornell.edu/video/tags/business">business</a></li>
+		
+		</ul>
+	</div>
+
+</div>
+
+
+		</article>
+		
+		<aside class="sidebar">
+			
+
+<div class="widget watch-next">
+	<h3>What to watch next</h3>
+
+	
+	
+				<div class="video-item">
+					<div class="preview">
+						<a data-videoid="202" href="//www.cornell.edu/video/usa-today-interview-with-amex-ceo-kenneth-chenault"><img src="//www.cornell.edu/video/img/thumbs/202-2.jpg" alt="" /></a>
+						<span class="duration"><i class="fa fa-cc closed-caption"></i>1:07:00</span> <span class="add playlist" data-kid="1_upmgn9rt"><button>MyPlaylist</button> <i class="fa fa-star-o"></i></span>
+					</div>
+
+					<div class="video-info">
+						<h4><a data-videoid="202" href="//www.cornell.edu/video/usa-today-interview-with-amex-ceo-kenneth-chenault">USA Today CEO Forum with Kenneth Chenault</a></h4>
+					</div>
+				</div>
+			
+				<div class="video-item">
+					<div class="preview">
+						<a data-videoid="21" href="//www.cornell.edu/video/sanford-weill-the-real-deal"><img src="//www.cornell.edu/video/img/thumbs/21-2.jpg" alt="" /></a>
+						<span class="duration"><i class="fa fa-cc closed-caption"></i>54:06</span> <span class="add playlist" data-kid="1_iqlm7283"><button>MyPlaylist</button> <i class="fa fa-star-o"></i></span>
+					</div>
+
+					<div class="video-info">
+						<h4><a data-videoid="21" href="//www.cornell.edu/video/sanford-weill-the-real-deal">Sanford I. Weill: The Real Deal</a></h4>
+					</div>
+				</div>
+			
+				<div class="video-item">
+					<div class="preview">
+						<a data-videoid="121" href="//www.cornell.edu/video/conversation-with-ge-ceo-jeff-immelt"><img src="//www.cornell.edu/video/img/thumbs/121-2.jpg" alt="" /></a>
+						<span class="duration"><i class="fa fa-cc closed-caption"></i>55:42</span> <span class="add playlist" data-kid="1_6yr0ybyd"><button>MyPlaylist</button> <i class="fa fa-star-o"></i></span>
+					</div>
+
+					<div class="video-info">
+						<h4><a data-videoid="121" href="//www.cornell.edu/video/conversation-with-ge-ceo-jeff-immelt">A conversation with Jeff Immelt</a></h4>
+					</div>
+				</div>
+			
+
+	<div class="more-btn">
+		<a href="//www.cornell.edu/video/random" title="Take a chance and see what you get...">surprise me</a>
+	</div>
+
+</div> 
+
+
+		</aside>
+
+	</section>
+</div>
+
+</div>
+
+
+
+<section class="footer" aria-label="footer">
+	<footer>
+		<nav>
+			<ul id="footerIcons">
+
+				<li title="get weekly email updates"><button data-reveal-id="subscribe" id="openSubscribeFooter"><i class="fa fa-envelope"></i> Subscribe</button></li>
+
+				<li title="submit content"><a href="//www.cornell.edu/video/submission-info.cfm"><i class="fa fa-upload"></i> Submit Content</a></li>
+
+				<li title="contact us"><button data-reveal-id="feedback" id="openFeedbackFooter"><i class="fa fa-comment"></i> Contact us</button></li>
+
+				<li class="rss" title="our RSS feed of most-recent items"><a href="//www.cornell.edu/video/rss"><i class="fa fa-rss"></i> RSS</a></li>
+
+			</ul>
+		</nav> 
+
+		<div class="social">
+			<p>Find Cornell on:</p>
+
+			<ul>
+
+				<li title="Find Cornell on YouTube"><a class="facebook" href="http://www.youtube.com/cornelluniversity/"><i class="fa fa-youtube"></i> <span>YouTube</span></a></li>
+
+				<li title="Find Cornell on iTunes"><a class="itunes" href="https://itunes.apple.com/us/institution/cornell-university/id431523450"><i class="fa fa-music"></i> <span>iTunes</span></a></li>
+
+			</ul>
+
+		</div>
+	</footer>
+
+	<div class="social-bar" id="leftIcons">
+		<ul>
+
+			<li class="comments" id="openFeedback" title="contact us"><button data-reveal-id="feedback"><i class="fa fa-comment"></i></button></li>
+
+			<li class="upcoming-events" id="openSchedule" title="view our schedule of future events"><button data-reveal-id="schedule"><i class="fa fa-calendar"></i></button></li>
+
+			<li class="email-subscribe" id="openSubscribe" title="get weekly email updates"><button data-reveal-id="subscribe"><i class="fa fa-envelope"></i></button></li>
+
+			<li class="site-settings" id="openSettings" title="update your preferences"><button data-reveal-id="settings"><i class="fa fa-cog"></i></button></li>
+
+		</ul>
+	</div>
+</section>
+
+
+
+<div id="feedback" class="reveal-modal modal">
+
+<h3>Give Feedback</h3>
+
+<div class="content">
+<form action="//www.cornell.edu/video/feedback.cfm" method="post" id="feedbackForm" name="feedbackForm">
+
+	<div>
+		<div>
+			<label for="nameFeedback">Name</label>
+		</div>
+		<div>
+			<input type="text" class="textinput" id="nameFeedback" name="name" size="25" value="" placeholder="name (optional)" />
+		</div>
+	</div>
+	<div>
+		<div>
+			<label for="emailFeedback">Email</label>
+		</div>
+		<div>
+			<input type="text" class="textinput" id="emailFeedback" name="email" size="25" value="" placeholder="email (optional)" />
+		</div>
+	</div>
+
+	<label for="commentsFeedback">Comments</label>
+	
+	<textarea id="commentsFeedback" name="comments" rows="10" cols="50" placeholder="comments" area-label="enter comments here"></textarea>
+
+	<input type="hidden" value="" id="pageFeedback" name="pageFeedback"/>
+
+
+<div class="field f_100 clearfix submit form-submit">
+	<button type="submit" value="Send" id="submitFeeback">Send</button> or 
+	<button class="btn close-reveal-modal modalCancel" id="cancelFeedback">cancel</button>
+</div>
+
+</form>
+
+</div>
+	<button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+<div id="feedbackSuccess" class="reveal-modal modal success">
+  <h3>Feedback</h3>
+  
+  <div class="content">
+    
+      <div class="notification">
+      	<p>Thanks for writing. We will  be in touch shortly to address any questions, concerns, or technical difficulties you may have. </p>
+      </div>
+      
+  </div>
+
+  <button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+
+
+<style type="text/css">
+#schedule #maincontent:after {
+	top: 690px;
+}
+</style>
+
+
+<div id="schedule" class="reveal-modal modal">
+	<h3 id="scheduleTitleBar" style="margin-bottom: 1em;">Schedule of Future Events</h3>
+	
+
+	<div id="maincontent">
+		
+	
+		
+		<table id="scheduleTableFuture">
+		
+
+			<tr>
+				<td class="time"><span style="white-space: nowrap">December  6</span><br />6:00 pm</td>
+				<td><img src="//media.univcomm.cornell.edu/photos/377x212/F7B7BE3F-A887-A298-AD1F361E2F9DEBA2.jpg" class="schedImage" id="imgVideoID8257" alt="Pet Nutrition flyer" /></td>
+				<td><span class="schedTitle" id="aVideoID8257"><a href="//www.cornell.edu/video/pet-nutrition-webinar-december-6-2017">Baker Pet Talks webinar: Pet Nutrition</a></span></td>
+				<td><button class="schedRSVP" data-rsvp-time='December  6, 6:00 pm (Eastern Time)' data-rsvp-thumb="//media.univcomm.cornell.edu/photos/377x212/F7B7BE3F-A887-A298-AD1F361E2F9DEBA2.jpg" data-rsvp-vid="8257" data-rsvp-kid="1_m3vi1zsx" data-rsvp-title="Baker Pet Talks webinar: Pet Nutrition" data-animation="fade" data-reveal-id="rsvp" data-context="schedule"><i class="fa fa-envelope"></i> rsvp</button></td>
+			</tr> 
+		
+
+			<tr>
+				<td class="time"><span style="white-space: nowrap">December  7</span><br />7:00 pm</td>
+				<td><img src="//media.univcomm.cornell.edu/photos/377x212/210D829C-AFA7-4A35-B584E11AE87B6E83.jpg" class="schedImage" id="imgVideoID8259" alt="Eric Severson" /></td>
+				<td><span class="schedTitle" id="aVideoID8259"><a href="//www.cornell.edu/video/eric-severson-future-of-retail-flexible-shift-work-21st-century">The Future of Retail: Flexible Shift Work in the 21st Century</a></span></td>
+				<td><button class="schedRSVP" data-rsvp-time='December  7, 7:00 pm (Eastern Time)' data-rsvp-thumb="//media.univcomm.cornell.edu/photos/377x212/210D829C-AFA7-4A35-B584E11AE87B6E83.jpg" data-rsvp-vid="8259" data-rsvp-kid="1_6zx0gsqa" data-rsvp-title="The Future of Retail: Flexible Shift Work in the 21st Century" data-animation="fade" data-reveal-id="rsvp" data-context="schedule"><i class="fa fa-envelope"></i> rsvp</button></td>
+			</tr> 
+		
+		</table>
+	</div>
+
+	
+	
+	<button class="close-reveal-modal x btn" id="schedModalClose">&#215;</button>
+</div>
+
+<div id="subscribe" class="reveal-modal modal">
+
+<h3>Email Updates</h3>
+<div class="content">
+	
+	<p>See what's new on CornellCast and find out what's coming up next &mdash; and how you can take part. Subscribe to receive weekly CornellCast updates via email.</p>
+	
+	<form name="subscribeForm" id="subscribeForm" action="/video/cleaner.cfm" method="post">
+	
+	<label for="emailSubscribe">Email address</label> <input value="" type="text" size="50" maxlength="50" id="emailSubscribe" name="email" placeholder="email" /> 
+	  
+	<button type="submit" value="subscribe" id="submitSubscribe">Subscribe</button> or <button class="btn close-reveal-modal modalCancel" id="cancelSubscribe">cancel</button>
+	</form>
+
+</div>
+
+  <button class="close-reveal-modal x btn">&#215;</button>
+</div>
+<div id="subscribeSuccess" class="reveal-modal modal success">
+	<h3>Subscribe</h3>
+
+	<div class="content">
+
+		<div class="notification">
+			<p>Our hamsters have processed your subscription request and advise that the weekly update messages will contain details on unsubscribing in case you need them.</p>
+		</div>
+
+	</div>
+
+	<button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+
+
+
+<div id="whatFollowedSuccess" class="reveal-modal modal success">
+	<h3>List Sent</h3>
+
+	<div class="content">
+
+		<div class="notification">
+			<p>Our hamsters have processed your request and advise that a summary has been sent to the email address entered.</p>
+		</div>
+
+	</div>
+
+	<button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+
+
+<div id="rsvp" class="reveal-modal modal">
+	<h3>RSVP to this Live Event</h3>
+	
+	<div class="content">
+	
+	<div class="event-info">
+		<img id="rsvpModalEventThumb" src="" alt="" />
+		<p class="date" id="rsvpModalEventTime">tdb</p>
+		<h4 id="rsvpModalEventTitle">tbd</h4>
+	</div>
+	
+	<p class="notification">Enter your email below to be notified when this event begins</p>
+	
+	<form action="#" method="post" novalidate="" name="rsvpForm" id="rsvpForm">
+	
+		<input type="hidden" name="KalturaIDRSVP" id="KalturaIDRSVP" value="tbd"/>
+		<input type="hidden" name="VideoIDRSVP" id="VideoIDRSVP" value="-1"/>
+		
+		<div class="field">
+			<label for="rsvpName">Name</label>
+			<input type="text" name="UserName" required="required" placeholder="name" value="" id="rsvpName" aria-label="name">
+		</div>
+		
+		<div class="field">
+			<label for="rsvpEmail">Email Address</label>
+			<input type="email" name="UserEmail" required="required" placeholder="email" value="" id="rsvpEmail" aria-label="email address">
+		</div>
+		
+		<div class="select-time">
+			<p>Set reminder for</p>
+			<label for="rsvpTime">Set reminder for</label>
+			
+			<select id="rsvpTime" name="UserReminderAmount" data-placeholder="choose time..." class="chzn-select" style="width:160px;" tabindex="2">
+				<option value=""></option> 
+				<option value="5">5 minutes</option> 
+				<option value="15">15 minutes</option> 
+				<option value="30" selected>30 minutes</option> 
+				<option value="60">1 hour</option> 
+				<option value="1440">1 day</option> 
+			</select>
+			
+			<p>before the event starts.</p>
+		</div>
+
+		<div class="field f_100 clearfix submit form-submit">
+			<button type="submit" value="Submit" id="submitRSVP">RSVP</button> or <button class="btn close-reveal-modal modalCancel" id="cancelRSVP">cancel</button>
+		</div>
+	
+	</form>
+	</div>
+	
+	<button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+<div id="rsvpSuccess" class="reveal-modal modal success">
+	<h3>RSVP Successful</h3>
+	
+	<div class="content">
+		
+			<p>You should receive an email confirmation shortly.<br />We will send you an email reminder <strong><span id="rsvpTimePeriod"></span></strong> before the show begins.<br />You may request additional reminders for other times if you wish.</p>
+
+			<div class="notification">
+				<p><strong>You can also add this event to a calendar of your choice</strong></p>
+
+				<div class="add-to-calendar">
+					<button id="addToCaliCal" class="addToCal">iCal/Outlook/other</button>
+					<button id="addToCalGoogle" class="addToCal">Google calendar</button>
+				</div>
+				
+				<p>For iCal, an .ics file will be downloaded to your computer or device. You may need to take additional steps to add the event to your personal calendar.</p>
+				
+			</div>
+	 </div>
+
+	<button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+
+
+<div id="settings" class="reveal-modal modal">
+	<h3>Settings</h3>
+	<div class="content">
+
+	<p>Let us know your preferences and our accommodating hamsters will snap to it!</p>
+
+	<form name="settingsForm" id="settingsForm" action="/video/cleaner.cfm" method="post">
+		
+		<span id="autoplayChoices">
+		<fieldset aria-role="radiogroup" aria-label="autoplay?" style="border: none">
+			<legend>Autoplay:</legend>
+			<label for="autoplay_1" style="display: inline">on
+			<input type="radio" name="autoplay" value="1" id="autoplay_1" checked aria-label="autoplay on" /></label>
+
+			<label for="autoplay_0" style="display: inline">off
+			<input type="radio" name="autoplay" value="0" id="autoplay_0"  aria-label="autoplay off" /></label>
+
+		</fieldset>
+		</span>
+
+		<button type="submit" value="update" id="updateSettings">Update</button> or <button class="btn close-reveal-modal modalCancel" id="cancelSettings">cancel</button>
+	</form>
+	</div>
+
+	<button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+
+<div id="follow" class="reveal-modal modal">
+	<h3>Follow this tbd</h3>
+	
+	<div class="content">
+	
+	<div class="event-info">
+		<img id="followModalEventThumb" src="" alt="tbd" />
+		<h4 id="followModalEventTitle">tbd</h4>
+	</div>
+	
+	<p class="notification">Enter your email below to be notified when new related videos become available.</p>
+	
+	<form action="#" method="post" novalidate="" name="followForm" id="followForm">
+	
+		<input type="hidden" name="IDFollow" id="IDFollow" value="tbd"/>
+		<input type="hidden" name="TypeFollow" id="TypeFollow" value="tbd"/>
+		<input type="hidden" name="NameFollow" id="NameFollow" value="tbd"/>
+		
+		<div class="field">
+			<label for="followName">Name</label>
+			<input type="text" name="UserName" required="required" placeholder="name" value="" id="followName" aria-label="name">
+		</div>
+		
+		<div class="field">
+			<label for="followEmail">Email Address</label>
+			<input type="email" name="UserEmail" required="required" placeholder="email" value="" id="followEmail" aria-label="email address">
+		</div>
+		
+		<div class="field f_100 clearfix submit form-submit">
+			<button type="submit" value="Submit" id="submitFollow">Follow</button> or <button class="btn close-reveal-modal modalCancel" id="cancelFollow">cancel</button>
+		</div>
+	
+	</form>
+	</div>
+	
+	<button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+<div id="followSuccess" class="reveal-modal modal success">
+  <h3>Thanks for Your Interest</h3>
+  
+  <div class="content">
+    
+      <p>You should receive an email confirmation shortly.<br />We will send you an email message when new related videos are posted.</p>
+
+  </div>
+
+  <button class="close-reveal-modal x btn">&#215;</button>
+</div>
+
+
+
+<!--[if lt IE 9]>
+<script src="//www.cornell.edu/video/assets/javascripts/jquery-extra-selectors.js" type="text/javascript"></script>
+<![endif]-->
+
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/bootstrap.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/chosen.jquery.min.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/jquery.easytabs.min.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/jquery.flexslider.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/jquery.hoverIntent.min.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/jquery.noisy.min.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/jquery.reveal.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/jquery.touchcarousel-1.1.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/jquery.mousewheel.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/jquery.equalheights.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/jquery.jgrowl.js" type="text/javascript"></script>
+
+
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/clipboard.min.js" type="text/javascript"></script>
+
+<script src="//www.cornell.edu/video/assets/javascripts/vendor/jquery.mask.min.js" type="text/javascript"></script>
+<script src="//www.cornell.edu/video/assets/javascripts/singlebrook.js" type="text/javascript"></script>
+
+<script src="//www.youtube.com/iframe_api" type="text/javascript"></script>
+
+<script type="text/javascript">
+var _gaq=[['_setAccount','UA-1628162-1'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+
+<script src="//www.cornell.edu/video/assets/javascripts/kaltura_player.js?v=2017-10-10" type="text/javascript"> </script>
+
+<script src="//www.cornell.edu/video/assets/javascripts/application.js?v=2017-10-10" type="text/javascript"> </script>
+
+
+
+</body>
+</html>

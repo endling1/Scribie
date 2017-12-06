@@ -3,6 +3,7 @@ const fs = require('fs');
 const { JSDOM } = require('jsdom');
 const browser = require('zombie');
 const {Builder, By, Key, until} = require('selenium-webdriver');
+const phantomjs = require('phantomjs-prebuilt');
 
 class Scraper {
 	constructor() {
@@ -121,6 +122,35 @@ class Scraper {
 			callback(reason, null);
 		});
 	}
+
+	/* 
+		Needs phantom.js to be installed
+		Selenium automation 
+	*/
+	// scrapeAVLinks6(url, callback){
+	// 	let driver = new Builder()
+	// 	    .forBrowser('phantomjs')
+	// 	    .build();
+
+	// 	driver.get(url);
+	// 	driver.getPageSource(url)
+	// 	.then((res) => {
+	// 		console.log(res);
+	// 		callback(null, res.match(this.avRegex) || [])
+	// 	})
+	// 	.catch((reason) => {
+	// 		callback(reason, null);
+	// 	});
+	// }
+
+	// scrapeAVLinks7(url, callback){
+		
+	// 	var program = phantomjs.exec('phantom_script.js', url);
+
+	// 	program.on('exit', code => {
+	// 	  console.log('end');
+	// 	});
+	// }
 };
 
 module.exports = new Scraper();
